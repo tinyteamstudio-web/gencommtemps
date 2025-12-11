@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>GEN-01 · Legacy Family Tree Preview · TinyTeam</title>
+    <meta
+      name="description"
+      content="Preview the GEN-01 Legacy Family Tree template from TinyTeam Digital Studio. A 4-generation genealogy layout with a soft, storybook scrapbook feel."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Reuse global TinyTeam styles -->
+    <link rel="stylesheet" href="../../styles.css" />
+    <style>
+      /* Page layout */
+      body {
+        background: radial-gradient(
+          circle at top,
+          #fef9c3,
+          #f5ebe1 40%,
+          #e7e0d7 100%
+        );
+      }
+
+      .preview-layout-page {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 32px 16px 60px;
+      }
+
+      .preview-header {
+        margin-bottom: 18px;
+      }
+
+      .preview-back-link {
+        font-size: 12px;
+        margin-bottom: 6px;
+      }
+
+      .preview-back-link a {
+        color: #854d0e;
+        text-decoration: none;
+      }
+
+      .preview-back-link a:hover {
+        text-decoration: underline;
+      }
+
+      .preview-title {
+        font-size: 20px;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      .preview-sub {
+        font-size: 13px;
+        color: #6b7280;
+        margin: 4px 0 0;
+      }
+
+      /* Scrapbook "page" */
+      .scrapbook-page {
+        margin-top: 18px;
+        background: #fbf6ec;
+        border-radius: 18px;
+        padding: 22px 18px 26px;
+        border: 1px solid rgba(193, 164, 123, 0.8);
+        box-shadow:
+          0 18px 40px rgba(87, 65, 37, 0.35),
+          0 0 0 1px rgba(255, 255, 255, 0.6);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .scrapbook-page::before {
+        content: "";
+        position: absolute;
+        inset: 14px 10px auto 10px;
+        height: 1px;
+        background: repeating-linear-gradient(
+          to right,
+          rgba(209, 213, 219, 0.6),
+          rgba(209, 213, 219, 0.6) 6px,
+          transparent 6px,
+          transparent 12px
+        );
+        opacity: 0.7;
+        pointer-events: none;
+      }
+
+      .scrapbook-corner {
+        position: absolute;
+        width: 62px;
+        height: 62px;
+        border-radius: 999px;
+        border: 1px dashed rgba(250, 204, 21, 0.7);
+        right: -18px;
+        top: -18px;
+        background: radial-gradient(circle at 30% 40%, #fefce8, #facc15);
+        opacity: 0.6;
+      }
+
+      /* Header inside the page */
+      .tagline {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(250, 204, 21, 0.16);
+        color: #854d0e;
+        font-size: 11px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-bottom: 8px;
+      }
+
+      .tag-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: #eab308;
+      }
+
+      .tree-header h1 {
+        margin: 0;
+        font-size: 21px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      .tree-header h1 span {
+        display: block;
+        font-weight: 400;
+        opacity: 0.8;
+        font-size: 14px;
+        margin-top: 2px;
+      }
+
+      .tree-header p {
+        margin: 8px 0 0;
+        font-size: 13px;
+        color: #6b7280;
+        max-width: 560px;
+      }
+
+      .offer-line {
+        margin-top: 10px;
+        font-size: 13px;
+        font-style: italic;
+        color: #4b5563;
+        font-family: "Segoe Script", "Bradley Hand", "Comic Sans MS",
+          system-ui, -apple-system, BlinkMacSystemFont;
+      }
+
+      /* Generations area */
+
+      .generations {
+        margin-top: 22px;
+        border-top: 1px dotted rgba(148, 163, 184, 0.9);
+        padding-top: 18px;
+      }
+
+      .gen-block {
+        margin-bottom: 22px;
+      }
+
+      .gen-label {
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: #78716c;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .gen-label::before {
+        content: "✦";
+        font-size: 10px;
+        color: #b45309;
+      }
+
+      .gen-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        justify-content: center;
+      }
+
+      .person-card {
+        background: #fefcf7;
+        border-radius: 12px;
+        padding: 9px 10px 10px;
+        min-width: 145px;
+        max-width: 180px;
+        border: 1px solid rgba(214, 189, 135, 0.7);
+        box-shadow: 0 8px 20px rgba(120, 53, 15, 0.15);
+        position: relative;
+      }
+
+      .person-card::before {
+        content: "";
+        position: absolute;
+        inset: 6px 8px auto 8px;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          rgba(209, 213, 219, 0.9),
+          rgba(209, 213, 219, 0)
+        );
+        opacity: 0.9;
+      }
+
+      .person-label {
+        margin-top: 4px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #a16207;
+      }
+
+      .person-name {
+        font-size: 13px;
+        font-weight: 600;
+        margin-top: 4px;
+        color: #1c1917;
+      }
+
+      .person-dates {
+        font-size: 11px;
+        color: #78716c;
+        margin-top: 2px;
+      }
+
+      .person-notes {
+        font-size: 11px;
+        color: #a8a29e;
+        margin-top: 4px;
+        font-family: "Segoe Script", "Bradley Hand", "Comic Sans MS",
+          system-ui, -apple-system, BlinkMacSystemFont;
+      }
+
+      .preview-footnote {
+        margin-top: 18px;
+        font-size: 11px;
+        color: #a8a29e;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .preview-footnote strong {
+        font-weight: 600;
+        color: #78350f;
+      }
+
+      .preview-actions {
+        margin-top: 18px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .btn-note {
+        font-size: 11px;
+        color: #6b7280;
+      }
+
+      @media (max-width: 640px) {
+        .preview-layout-page {
+          padding: 24px 10px 40px;
+        }
+        .scrapbook-page {
+          padding: 20px 14px 22px;
+        }
+        .tree-header h1 {
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="preview-layout-page">
+      <!-- Top heading -->
+      <header class="preview-header">
+        <div class="preview-back-link">
+          ← <a href="../../index.html">Back to TinyTeam homepage</a>
+        </div>
+        <h1 class="preview-title">GEN-01 · Legacy Family Tree Preview</h1>
+        <p class="preview-sub">
+          This is a visual preview of the GEN-01 layout. The final template you
+          receive will allow you to fill in your own names, dates, and notes.
+        </p>
+      </header>
+
+      <!-- Scrapbook-style "page" -->
+      <section class="scrapbook-page">
+        <div class="scrapbook-corner" aria-hidden="true"></div>
+
+        <header class="tree-header">
+          <div class="tagline">
+            <span class="tag-dot"></span>
+            <span>TinyTeam Genealogy Collection</span>
+          </div>
+          <h1>
+            GEN-01 · Legacy Family Tree
+            <span>4-Generation Family & Ancestry Snapshot</span>
+          </h1>
+          <p>
+            Designed to feel like a page from a family journal — not just a
+            technical chart. Each box holds space for names, key dates, and a
+            small note about the person.
+          </p>
+          <p class="offer-line">
+            “A gentle way to see everyone who came before you, gathered on one
+            warm page.”
+          </p>
+        </header>
+
+        <main class="generations">
+          <!-- Generation 1 -->
+          <section class="gen-block">
+            <div class="gen-label">Generation I · Proband (You or Main Person)</div>
+            <div class="gen-row">
+              <div class="person-card">
+                <div class="person-label">Proband</div>
+                <div class="person-name">Main Person</div>
+                <div class="person-dates">b. yyyy · d. yyyy</div>
+                <div class="person-notes">Anchor of this family tree.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Generation 2 -->
+          <section class="gen-block">
+            <div class="gen-label">Generation II · Parents</div>
+            <div class="gen-row">
+              <div class="person-card">
+                <div class="person-label">Father</div>
+                <div class="person-name">Name Here</div>
+                <div class="person-dates">b. yyyy · d. yyyy</div>
+                <div class="person-notes">Short note or role can go here.</div>
+              </div>
+              <div class="person-card">
+                <div class="person-label">Mother</div>
+                <div class="person-name">Name Here</div>
+                <div class="person-dates">b. yyyy · d. yyyy</div>
+                <div class="person-notes">Short note or role can go here.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Generation 3 -->
+          <section class="gen-block">
+            <div class="gen-label">Generation III · Grandparents</div>
+            <div class="gen-row">
+              <div class="person-card">
+                <div class="person-label">Grandparent 1</div>
+                <div class="person-name">Name Here</div>
+                <div class="person-dates">b. yyyy · d. yyyy</div>
+                <div class="person-notes">Optional note.</div>
+              </div>
+              <div class="person-card">
+                <div class="person-label">Grandparent 2</div>
+                <div class="person-name">Name Here</div>
+                <div class="person-dates">b. yyyy · d. yyyy</div>
+                <div class="person-notes">Optional note.</div>
+              </div>
+              <div class="person-card">
+                <div class="person-label">Grandparent 3</div>
+                <div class="person-name">Name Here</div>
+                <div class="person-dates">b. yyyy · d. yyyy</div>
+                <div class="person-notes">Optional note.</div>
+              </div>
+              <div class="person-card">
+                <div class="person-label">Grandparent 4</div>
+                <div class="person-name">Name Here</div>
+                <div class="person-dates">b. yyyy · d. yyyy</div>
+                <div class="person-notes">Optional note.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Generation 4 -->
+          <section class="gen-block">
+            <div class="gen-label">Generation IV · Great-grandparents</div>
+            <div class="gen-row">
+              <div class="person-card">
+                <div class="person-label">GG-Parent 1</div>
+                <div class="person-name">Name Here</div>
+                <div class="person-dates">b. yyyy · d. yyyy</div>
+                <div class="person-notes">Optional note.</div>
+              </div>
+              <div class="person-card">
+                <div class="person-label">GG-Parent 2</div>
+                <div class="person-name">Name Here</div>
+                <div class="person-dates">b. yyyy · d. yyyy</div>
+                <div class="person-notes">Optional note.</div>
+              </div>
+              <div class="person-card">
+                <div class="person-label">GG-Parent 3</div>
+                <div class="person-name">Name Here</div>
+                <div class="person-dates">b. yyyy · d. yyyy</div>
+                <div class="person-notes">Optional note.</div>
+              </div>
+              <div class="person-card">
+                <div class="person-label">GG-Parent 4</div>
+                <div class="person-name">Name Here</div>
+                <div class="person-dates">b. yyyy · d. yyyy</div>
+                <div class="person-notes">Optional note.</div>
+              </div>
+              <div class="person-card">
+                <div class="person-label">GG-Parent 5</div>
+                <div class="person-name">Name Here</div>
+                <div class="person-dates">b. yyyy · d. yyyy</div>
+                <div class="person-notes">Optional note.</div>
+              </div>
+              <div class="person-card">
+                <div class="person-label">GG-Parent 6</div>
+                <div class="person-name">Name Here</div>
+                <div class="person-dates">b. yyyy · d. yyyy</div>
+                <div class="person-notes">Optional note.</div>
+              </div>
+              <div class="person-card">
+                <div class="person-label">GG-Parent 7</div>
+                <div class="person-name">Name Here</div>
+                <div class="person-dates">b. yyyy · d. yyyy</div>
+                <div class="person-notes">Optional note.</div>
+              </div>
+              <div class="person-card">
+                <div class="person-label">GG-Parent 8</div>
+                <div class="person-name">Name Here</div>
+                <div class="person-dates">b. yyyy · d. yyyy</div>
+                <div class="person-notes">Optional note.</div>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <div class="preview-actions">
+          <a href="../../products/gen-01.html" class="btn-primary">
+            View GEN-01 offer & how to purchase
+          </a>
+          <span class="btn-note">
+            (Offer page link will be active after we build it in Step 3.)
+          </span>
+        </div>
+
+        <footer class="preview-footnote">
+          <span>
+            <strong>GEN-01</strong> · Legacy Family Tree · Genealogy category (GEN)
+          </span>
+          <span>TinyTeam Digital Studio · Powered by BuildFrame System Agency</span>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>
