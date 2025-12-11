@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pay via QR · TinyTeam Digital Studio</title>
+    <meta
+      name="description"
+      content="Pay for your TinyTeam templates using QR codes for GCash, Maya, PNB, or GoTyme. Simple steps to send payment and receive your digital files."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      body {
+        background: radial-gradient(
+          circle at top,
+          #fef9c3,
+          #f5ebe1 40%,
+          #e7e0d7 100%
+        );
+      }
+
+      .qr-page {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 32px 16px 60px;
+      }
+
+      .crumbs {
+        font-size: 12px;
+        margin-bottom: 10px;
+      }
+
+      .crumbs a {
+        color: #854d0e;
+        text-decoration: none;
+      }
+
+      .crumbs a:hover {
+        text-decoration: underline;
+      }
+
+      .qr-title {
+        font-size: 21px;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      .qr-sub {
+        font-size: 13px;
+        color: #6b7280;
+        margin: 4px 0 0;
+        max-width: 640px;
+      }
+
+      .qr-layout {
+        margin-top: 18px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
+        gap: 18px;
+      }
+
+      .qr-panel {
+        background: #fefcf7;
+        border-radius: 18px;
+        padding: 18px 16px 20px;
+        border: 1px solid rgba(209, 213, 219, 0.9);
+        box-shadow: 0 16px 40px rgba(148, 163, 184, 0.4);
+      }
+
+      .qr-panel h2 {
+        font-size: 14px;
+        margin: 0 0 6px;
+      }
+
+      .qr-panel p {
+        font-size: 12px;
+        color: #4b5563;
+        margin: 0 0 6px;
+      }
+
+      .qr-panel ol {
+        padding-left: 18px;
+        margin: 4px 0 0;
+      }
+
+      .qr-panel li {
+        font-size: 12px;
+        color: #4b5563;
+        margin-bottom: 4px;
+      }
+
+      .qr-email-box {
+        margin-top: 10px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        border: 1px dashed rgba(148, 163, 184, 0.9);
+        background: rgba(255, 255, 255, 0.9);
+        font-size: 12px;
+      }
+
+      .qr-email-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: #9ca3af;
+      }
+
+      .qr-email-value {
+        font-size: 13px;
+        font-weight: 600;
+        color: #1f2933;
+      }
+
+      .qr-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .qr-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 10px 10px 12px;
+        border: 1px solid rgba(209, 213, 219, 0.9);
+        box-shadow: 0 12px 28px rgba(148, 163, 184, 0.4);
+        text-align: center;
+      }
+
+      .qr-card h3 {
+        font-size: 12px;
+        margin: 4px 0 4px;
+      }
+
+      .qr-card p {
+        font-size: 11px;
+        color: #6b7280;
+        margin: 0;
+      }
+
+      .qr-card img {
+        max-width: 100%;
+        border-radius: 10px;
+        border: 1px solid rgba(229, 231, 235, 0.9);
+      }
+
+      .qr-note {
+        margin-top: 8px;
+        font-size: 11px;
+        color: #9ca3af;
+      }
+
+      .qr-footer {
+        margin-top: 22px;
+        font-size: 11px;
+        color: #a8a29e;
+        border-top: 1px dashed rgba(148, 163, 184, 0.8);
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      @media (max-width: 768px) {
+        .qr-layout {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="qr-page">
+      <div class="crumbs">
+        <a href="../index.html">TinyTeam home</a> ·
+        <a href="../products/GEN-01.html">GEN-01 offer</a> ·
+        <span>Pay via QR</span>
+      </div>
+
+      <header>
+        <h1 class="qr-title">Pay via QR</h1>
+        <p class="qr-sub">
+          You can pay for <strong>GEN-01 · Legacy Family Tree</strong> (and
+          other TinyTeam templates) using GCash, Maya, PNB, or GoTyme by
+          scanning one of the QR codes below.
+        </p>
+      </header>
+
+      <section class="qr-layout">
+        <!-- LEFT: Instructions -->
+        <article class="qr-panel">
+          <h2>How to pay with QR</h2>
+          <p>Please follow these steps so we can match your payment correctly:</p>
+          <ol>
+            <li>
+              Choose your preferred payment method (GCash, Maya, PNB, or
+              GoTyme).
+            </li>
+            <li>Scan the QR code using your banking or wallet app.</li>
+            <li>
+              Send the payment for
+              <strong>USD 15 (or equivalent)</strong> for
+              <strong>GEN-01 Legacy Family Tree</strong>.
+            </li>
+            <li>
+              Take a screenshot of your successful payment (showing reference
+              number and date).
+            </li>
+            <li>
+              Email us the screenshot and your order details using the email
+              below.
+            </li>
+          </ol>
+
+          <div class="qr-email-box">
+            <div class="qr-email-label">Send your receipt & order details to</div>
+            <div class="qr-email-value">
+              <!-- TODO: replace with your real email -->
+              your.email@tinyteamstudio.com
+            </div>
+            <p style="font-size: 11px; color: #6b7280; margin-top: 4px;">
+              Please include:
+              <br />• Template name: <strong>GEN-01 Legacy Family Tree</strong>
+              <br />• Your full name<br />• Preferred format: A4 or US Letter
+            </p>
+          </div>
+
+          <p class="qr-note">
+            Files are currently delivered manually within 24–48 hours after we
+            confirm your payment. Later, this can be automated using the
+            BuildFrame System Agency backend.
+          </p>
+        </article>
+
+        <!-- RIGHT: QR codes -->
+        <aside class="qr-panel">
+          <h2>Choose a QR payment method</h2>
+          <div class="qr-grid">
+            <div class="qr-card">
+              <img src="../assets/qr/gcash-qr.jpeg" alt="GCash QR code" />
+              <h3>GCash</h3>
+              <p>Scan with your GCash app.</p>
+            </div>
+
+            <div class="qr-card">
+              <img src="../assets/qr/maya-qr.jpeg" alt="Maya QR code" />
+              <h3>Maya</h3>
+              <p>Scan with Maya / PayMaya.</p>
+            </div>
+
+            <div class="qr-card">
+              <img src="../assets/qr/pnb-qr.jpeg" alt="PNB QR code" />
+              <h3>PNB</h3>
+              <p>Scan with your PNB mobile app.</p>
+            </div>
+
+            <div class="qr-card">
+              <img src="../assets/qr/gotyme-qr.jpeg" alt="GoTyme QR code" />
+              <h3>GoTyme</h3>
+              <p>Scan with your GoTyme app.</p>
+            </div>
+          </div>
+
+          <p class="qr-note">
+            If any QR code fails to load, you can also request the account
+            details by email.
+          </p>
+        </aside>
+      </section>
+
+      <footer class="qr-footer">
+        <span>
+          TinyTeam Digital Studio · GenComm Templates — QR payment instructions.
+        </span>
+        <span>Engineered by BuildFrame System Agency.</span>
+      </footer>
+    </main>
+  </body>
+</html>
