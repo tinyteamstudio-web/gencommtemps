@@ -47,3 +47,16 @@ body {
   font-size: 0.9rem;
   color: #666;
 }
+.tt-soft {
+  background: #ffffff;
+  padding: 48px 20px;
+  border-radius: 16px;
+}
+
+.tt-list {
+  padding-left: 20px;
+}
+
+.tt-list li {
+  margin-bottom: 8px;
+}
