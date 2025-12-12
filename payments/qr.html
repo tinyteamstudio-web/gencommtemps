@@ -35,6 +35,7 @@
     .crumbs a {
       color: rgba(15, 118, 110, 0.95);
       text-decoration: none;
+      font-weight: 800;
     }
     .crumbs a:hover {
       text-decoration: underline;
@@ -99,6 +100,7 @@
       margin: 6px 0 0;
       font-size: 13px;
       color: rgba(55, 65, 81, 0.85);
+      line-height: 1.55;
     }
 
     /* Packages (2 rows) */
@@ -128,7 +130,7 @@
       margin-top: 8px;
       font-size: 12px;
       color: rgba(15, 118, 110, 0.95);
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .packages-wrap {
@@ -150,6 +152,7 @@
       margin-bottom: 6px;
       font-size: 13px;
       color: rgba(55, 65, 81, 0.85);
+      line-height: 1.5;
     }
 
     .email-box {
@@ -174,7 +177,7 @@
     }
     .email-value {
       font-size: 14px;
-      font-weight: 800;
+      font-weight: 900;
       color: rgba(17, 24, 39, 0.95);
     }
     .copy-btn {
@@ -184,7 +187,7 @@
       border-radius: 999px;
       padding: 8px 12px;
       font-size: 12px;
-      font-weight: 750;
+      font-weight: 850;
       cursor: pointer;
     }
     .copy-btn:active {
@@ -244,7 +247,7 @@
       background: rgba(16, 185, 129, 0.10);
       border: 1px solid rgba(16, 185, 129, 0.25);
       color: rgba(5, 150, 105, 1);
-      font-weight: 800;
+      font-weight: 900;
       font-size: 12px;
       width: fit-content;
     }
@@ -264,7 +267,7 @@
       padding: 10px 14px;
       text-decoration: none;
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 900;
       border: 1px solid rgba(99, 102, 241, 0.25);
       background: rgba(99, 102, 241, 0.08);
       color: rgba(67, 56, 202, 1);
@@ -307,7 +310,7 @@
       flex-wrap: wrap;
     }
     .modal-title {
-      font-weight: 900;
+      font-weight: 950;
       font-size: 13px;
       color: rgba(17, 24, 39, 0.95);
     }
@@ -321,7 +324,7 @@
       border-radius: 999px;
       padding: 8px 12px;
       font-size: 12px;
-      font-weight: 850;
+      font-weight: 900;
       border: 1px solid rgba(229, 231, 235, 0.95);
       background: rgba(255, 255, 255, 1);
       cursor: pointer;
@@ -361,11 +364,20 @@
     @media (max-width: 560px) {
       .packages,
       .packages-sub {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: 1fr;
       }
       .hero h1 {
         font-size: 22px;
       }
+    }
+
+    /* Tiny logo support inside this page footer */
+    .tt-footer-logo {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+      border-radius: 3px;
+      display: inline-block;
     }
   </style>
 </head>
@@ -392,7 +404,7 @@
 
       <div class="nav-row">
         <a class="link-btn alt" href="../products/GEN-01.html">← Back to GEN-01</a>
-        <a class="link-btn" href="../payments/thank-you.html">Go to Thank You →</a>
+        <a class="link-btn" id="thankYouBtn" href="../payments/thank-you.html">Go to Thank You →</a>
         <a class="link-btn alt" href="../help/">Help</a>
       </div>
     </section>
@@ -455,7 +467,7 @@
         </div>
       </section>
 
-      <!-- Instructions + Email (with Copy button + Email Draft) -->
+      <!-- Instructions + Email -->
       <section class="panel steps">
         <h2>How to Pay (Manual Verification)</h2>
         <ol>
@@ -489,7 +501,7 @@
         </div>
       </section>
 
-      <!-- QR Codes (one section, 4 images) -->
+      <!-- QR Codes -->
       <section class="panel">
         <h2>Choose a QR Payment Method</h2>
         <p class="hint">Tap a QR image to enlarge and download a clean copy.</p>
@@ -557,11 +569,36 @@
 
     </div>
 
+    <!-- Footer with logos + correct relative links -->
     <footer class="tt-footer" style="margin-top:24px;">
-      <p>
-        TinyTeam Digital Library · Powered by BuildFrame Digital System ·
-        <a href="/help/">Help</a>
-      </p>
+      <div class="tt-footer-inner">
+
+        <div class="tt-footer-brand">
+          <img
+            src="../assets/logo/tinyteam-logo.jpeg"
+            alt="TinyTeam Digital Library"
+            class="tt-footer-logo"
+            loading="lazy"
+          />
+          <span>TinyTeam Digital Library</span>
+        </div>
+
+        <div class="tt-footer-powered">
+          <span>Powered by</span>
+          <img
+            src="../assets/logo/buildframe-logo.png"
+            alt="BuildFrame Digital System"
+            class="tt-footer-logo"
+            loading="lazy"
+          />
+          <span>BuildFrame Digital System</span>
+        </div>
+
+        <div class="tt-footer-help">
+          <a href="../help/">Help</a>
+        </div>
+
+      </div>
     </footer>
 
   </main>
@@ -590,6 +627,7 @@
     if (refFromUrl) localStorage.setItem("tt_ref", refFromUrl);
 
     const storedRef = localStorage.getItem("tt_ref") || "";
+
     const attributionTitle = document.getElementById("attributionTitle");
     const attributionText = document.getElementById("attributionText");
 
@@ -603,22 +641,31 @@
         "No reseller code detected. This purchase will be recorded as a direct TinyTeam sale.";
     }
 
-    // --- Copy email button ---
+    // --- Keep ref when going to thank-you page ---
+    const thankYouBtn = document.getElementById("thankYouBtn");
+    if (thankYouBtn && storedRef) {
+      const base = thankYouBtn.getAttribute("href");
+      thankYouBtn.setAttribute("href", `${base}?ref=${encodeURIComponent(storedRef)}`);
+    }
+
+    // --- Copy email button (safe guarded) ---
     const copyBtn = document.getElementById("copyEmailBtn");
     const emailEl = document.getElementById("supportEmail");
     const copyStatus = document.getElementById("copyStatus");
 
-    copyBtn.addEventListener("click", async () => {
-      const email = emailEl.textContent.trim();
-      try {
-        await navigator.clipboard.writeText(email);
-        copyStatus.textContent = "Copied ✔";
-        setTimeout(() => (copyStatus.textContent = ""), 1600);
-      } catch (e) {
-        copyStatus.textContent = "Copy failed — please copy manually.";
-        setTimeout(() => (copyStatus.textContent = ""), 2200);
-      }
-    });
+    if (copyBtn && emailEl && copyStatus) {
+      copyBtn.addEventListener("click", async () => {
+        const email = emailEl.textContent.trim();
+        try {
+          await navigator.clipboard.writeText(email);
+          copyStatus.textContent = "Copied ✔";
+          setTimeout(() => (copyStatus.textContent = ""), 1600);
+        } catch (e) {
+          copyStatus.textContent = "Copy failed — please copy manually.";
+          setTimeout(() => (copyStatus.textContent = ""), 2200);
+        }
+      });
+    }
 
     // --- Email Receipt Now (prefilled draft) ---
     const supportEmail = "smallsteps@tinyteamstudio.online";
@@ -681,10 +728,14 @@
       });
     });
 
-    closeBtn.addEventListener("click", closeModal);
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) closeModal();
-    });
+    if (closeBtn) closeBtn.addEventListener("click", closeModal);
+
+    if (modal) {
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+    }
+
     window.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeModal();
     });
