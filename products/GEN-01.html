@@ -34,6 +34,7 @@
     .crumbs a {
       color: #854d0e;
       text-decoration: none;
+      font-weight: 700;
     }
 
     .crumbs a:hover {
@@ -42,16 +43,16 @@
 
     .product-header-title {
       font-size: 22px;
-      font-weight: 700;
+      font-weight: 800;
       margin: 0;
     }
 
     .product-header-sub {
       font-size: 13px;
       color: #6b7280;
-      margin: 4px 0 0;
+      margin: 6px 0 0;
       max-width: 760px;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .product-layout {
@@ -71,7 +72,7 @@
 
     .product-pill {
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.16em;
       color: #78716c;
@@ -82,7 +83,7 @@
       font-size: 13px;
       color: #4b5563;
       margin-top: 6px;
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     .product-section {
@@ -91,7 +92,7 @@
 
     .product-section h3 {
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 800;
       margin: 0 0 6px;
     }
 
@@ -99,7 +100,7 @@
       font-size: 12px;
       color: #6b7280;
       margin: 0 0 10px;
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     .product-section ul,
@@ -111,8 +112,8 @@
     .product-section li {
       font-size: 12px;
       color: #4b5563;
-      margin-bottom: 5px;
-      line-height: 1.5;
+      margin-bottom: 6px;
+      line-height: 1.55;
     }
 
     /* Pricing / payment panel */
@@ -139,7 +140,7 @@
 
     .payment-tag {
       font-size: 11px;
-      font-weight: 800;
+      font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 0.16em;
       color: #a16207;
@@ -155,26 +156,26 @@
 
     .price-main {
       font-size: 24px;
-      font-weight: 800;
+      font-weight: 900;
       color: #1c1917;
     }
 
     .price-main span {
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
       opacity: 0.8;
     }
 
     .price-note {
       font-size: 11px;
       color: #6b7280;
-      line-height: 1.45;
+      line-height: 1.5;
     }
 
     .payment-methods-title {
       margin-top: 10px;
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 900;
       color: #44403c;
     }
 
@@ -189,33 +190,35 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 8px 14px;
+      padding: 9px 14px;
       border-radius: 999px;
       font-size: 12px;
-      font-weight: 750;
+      font-weight: 800;
       border: 1px solid rgba(148, 163, 184, 0.9);
       background: rgba(249, 250, 251, 0.95);
       color: #111827;
       text-decoration: none;
       cursor: pointer;
+      white-space: nowrap;
     }
 
     .btn-secondary span {
       font-size: 11px;
       opacity: 0.85;
+      font-weight: 700;
     }
 
     .payment-note {
       margin-top: 10px;
       font-size: 12px;
       color: #6b7280;
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     .small-muted {
       font-size: 11px;
       color: #9ca3af;
-      line-height: 1.45;
+      line-height: 1.5;
     }
 
     /* Reseller attribution note */
@@ -227,18 +230,28 @@
       background: rgba(255, 255, 255, 0.85);
       font-size: 12px;
       color: #4b5563;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
-    .product-footer {
+    /* Local footer spacing inside page */
+    .product-footer-wrap {
       margin-top: 26px;
       border-top: 1px dashed rgba(148, 163, 184, 0.8);
       padding-top: 12px;
     }
 
+    /* Make footer logos tiny + square on this page too */
+    .tt-footer-logo {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+      border-radius: 3px;
+      display: inline-block;
+    }
+
     @media (max-width: 768px) {
       .product-layout {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -321,6 +334,7 @@
         <div class="price-row">
           <div class="price-main"><span>USD</span> 15</div>
         </div>
+
         <p class="price-note">
           One-time payment for personal/family use. No subscription, no recurring fees.
         </p>
@@ -381,12 +395,36 @@
       </p>
     </section>
 
-    <!-- Standard footer -->
-    <footer class="tt-footer">
-      <p>
-        TinyTeam Digital Library · Powered by BuildFrame Digital System ·
-        <a href="/help/">Help</a>
-      </p>
+    <!-- Standard footer (with logos + correct relative paths) -->
+    <footer class="tt-footer product-footer-wrap">
+      <div class="tt-footer-inner">
+
+        <div class="tt-footer-brand">
+          <img
+            src="../assets/logo/tinyteam-logo.jpeg"
+            alt="TinyTeam Digital Library"
+            class="tt-footer-logo"
+            loading="lazy"
+          />
+          <span>TinyTeam Digital Library</span>
+        </div>
+
+        <div class="tt-footer-powered">
+          <span>Powered by</span>
+          <img
+            src="../assets/logo/buildframe-logo.png"
+            alt="BuildFrame Digital System"
+            class="tt-footer-logo"
+            loading="lazy"
+          />
+          <span>BuildFrame Digital System</span>
+        </div>
+
+        <div class="tt-footer-help">
+          <a href="../help/">Help</a>
+        </div>
+
+      </div>
     </footer>
 
   </main>
@@ -400,7 +438,7 @@
 
     const storedRef = localStorage.getItem("tt_ref") || "";
 
-    // Update the QR link to carry the reseller code (so attribution remains even if localStorage is blocked)
+    // Carry reseller code to QR page (so attribution survives even if localStorage is blocked later)
     const qrBtn = document.getElementById("payViaQrBtn");
     if (qrBtn && storedRef) {
       const base = qrBtn.getAttribute("href");
