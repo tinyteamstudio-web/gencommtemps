@@ -167,3 +167,37 @@ body { overflow-x: hidden; }
 .tt-link:hover {
   border-bottom-color: rgba(15, 118, 110, 0.5);
 }
+
+/* =========================
+   TinyTeam Split Sections
+   ========================= */
+
+.tt-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 28px;
+  align-items: center;
+}
+
+.tt-split.reverse {
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+}
+
+.tt-split img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* Mobile behavior */
+@media (max-width: 768px) {
+  .tt-split,
+  .tt-split.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .tt-split img {
+    margin-top: 16px;
+  }
+}
