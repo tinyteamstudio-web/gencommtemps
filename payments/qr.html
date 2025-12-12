@@ -3,14 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <title>Pay via QR · TinyTeam Digital Library</title>
-  <meta name="description" content="Complete your TinyTeam purchase using QR payment methods. Calm, clear steps and support for families, communities, and organizations." />
+  <meta
+    name="description"
+    content="Complete your TinyTeam purchase using QR payment methods. Calm, clear steps and support for families, communities, and organizations."
+  />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="../styles.css" />
 
   <style>
     /* Page background (light teal + lavender) */
     body {
-      background: radial-gradient(circle at top, rgba(209, 250, 229, 0.9), rgba(233, 213, 255, 0.65) 45%, rgba(250, 250, 250, 1) 100%);
+      background: radial-gradient(
+        circle at top,
+        rgba(209, 250, 229, 0.9),
+        rgba(233, 213, 255, 0.65) 45%,
+        rgba(250, 250, 250, 1) 100%
+      );
     }
 
     .qr-page {
@@ -28,7 +36,9 @@
       color: rgba(15, 118, 110, 0.95);
       text-decoration: none;
     }
-    .crumbs a:hover { text-decoration: underline; }
+    .crumbs a:hover {
+      text-decoration: underline;
+    }
 
     .hero {
       background: rgba(255, 255, 255, 0.75);
@@ -81,8 +91,15 @@
       border: 1px dashed rgba(148, 163, 184, 0.7);
       background: rgba(255, 255, 255, 0.7);
     }
-    .note strong { display: block; font-size: 13px; }
-    .note p { margin: 6px 0 0; font-size: 13px; color: rgba(55, 65, 81, 0.85); }
+    .note strong {
+      display: block;
+      font-size: 13px;
+    }
+    .note p {
+      margin: 6px 0 0;
+      font-size: 13px;
+      color: rgba(55, 65, 81, 0.85);
+    }
 
     /* Packages (2 rows) */
     .packages {
@@ -97,12 +114,27 @@
       border: 1px solid rgba(229, 231, 235, 0.9);
       background: rgba(255, 255, 255, 0.9);
     }
-    .pkg h3 { margin: 0 0 6px; font-size: 14px; }
-    .pkg p { margin: 0; font-size: 12px; color: rgba(55, 65, 81, 0.82); line-height: 1.45; }
-    .pkg .cap { margin-top: 8px; font-size: 12px; color: rgba(15, 118, 110, 0.95); font-weight: 600; }
+    .pkg h3 {
+      margin: 0 0 6px;
+      font-size: 14px;
+    }
+    .pkg p {
+      margin: 0;
+      font-size: 12px;
+      color: rgba(55, 65, 81, 0.82);
+      line-height: 1.45;
+    }
+    .pkg .cap {
+      margin-top: 8px;
+      font-size: 12px;
+      color: rgba(15, 118, 110, 0.95);
+      font-weight: 700;
+    }
 
-    /* Second row packages container (2 rows behavior) */
-    .packages-wrap { display: grid; gap: 12px; }
+    .packages-wrap {
+      display: grid;
+      gap: 12px;
+    }
     .packages-sub {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -110,8 +142,15 @@
     }
 
     /* Instructions + email */
-    .steps ol { padding-left: 18px; margin: 8px 0 0; }
-    .steps li { margin-bottom: 6px; font-size: 13px; color: rgba(55, 65, 81, 0.85); }
+    .steps ol {
+      padding-left: 18px;
+      margin: 8px 0 0;
+    }
+    .steps li {
+      margin-bottom: 6px;
+      font-size: 13px;
+      color: rgba(55, 65, 81, 0.85);
+    }
 
     .email-box {
       margin-top: 12px;
@@ -135,7 +174,7 @@
     }
     .email-value {
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 800;
       color: rgba(17, 24, 39, 0.95);
     }
     .copy-btn {
@@ -145,10 +184,12 @@
       border-radius: 999px;
       padding: 8px 12px;
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 750;
       cursor: pointer;
     }
-    .copy-btn:active { transform: translateY(1px); }
+    .copy-btn:active {
+      transform: translateY(1px);
+    }
 
     .hint {
       margin-top: 8px;
@@ -203,7 +244,7 @@
       background: rgba(16, 185, 129, 0.10);
       border: 1px solid rgba(16, 185, 129, 0.25);
       color: rgba(5, 150, 105, 1);
-      font-weight: 650;
+      font-weight: 800;
       font-size: 12px;
       width: fit-content;
     }
@@ -223,7 +264,7 @@
       padding: 10px 14px;
       text-decoration: none;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
       border: 1px solid rgba(99, 102, 241, 0.25);
       background: rgba(99, 102, 241, 0.08);
       color: rgba(67, 56, 202, 1);
@@ -245,7 +286,9 @@
       padding: 20px;
       z-index: 9999;
     }
-    .modal.open { display: flex; }
+    .modal.open {
+      display: flex;
+    }
 
     .modal-card {
       width: min(880px, 100%);
@@ -264,7 +307,7 @@
       flex-wrap: wrap;
     }
     .modal-title {
-      font-weight: 800;
+      font-weight: 900;
       font-size: 13px;
       color: rgba(17, 24, 39, 0.95);
     }
@@ -273,11 +316,12 @@
       gap: 8px;
       flex-wrap: wrap;
     }
-    .modal-actions a, .modal-actions button {
+    .modal-actions a,
+    .modal-actions button {
       border-radius: 999px;
       padding: 8px 12px;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 850;
       border: 1px solid rgba(229, 231, 235, 0.95);
       background: rgba(255, 255, 255, 1);
       cursor: pointer;
@@ -305,12 +349,23 @@
 
     /* Responsive */
     @media (max-width: 960px) {
-      .qr-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .packages, .packages-sub { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .qr-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .packages,
+      .packages-sub {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
+
     @media (max-width: 560px) {
-      .packages, .packages-sub { grid-template-columns: minmax(0, 1fr); }
-      .hero h1 { font-size: 22px; }
+      .packages,
+      .packages-sub {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero h1 {
+        font-size: 22px;
+      }
     }
   </style>
 </head>
@@ -338,6 +393,7 @@
       <div class="nav-row">
         <a class="link-btn alt" href="../products/GEN-01.html">← Back to GEN-01</a>
         <a class="link-btn" href="../payments/thank-you.html">Go to Thank You →</a>
+        <a class="link-btn alt" href="../help/">Help</a>
       </div>
     </section>
 
@@ -399,7 +455,7 @@
         </div>
       </section>
 
-      <!-- Instructions + Email (with Copy button) -->
+      <!-- Instructions + Email (with Copy button + Email Draft) -->
       <section class="panel steps">
         <h2>How to Pay (Manual Verification)</h2>
         <ol>
@@ -411,12 +467,17 @@
         </ol>
 
         <div class="email-box">
-          <div class="email-label">Send your receipt & order details to</div>
+          <div class="email-label">Send your receipt &amp; order details to</div>
+
           <div class="email-row">
-            <span class="email-value" id="supportEmail">your.email@tinyteamstudio.com</span>
+            <span class="email-value" id="supportEmail">smallsteps@tinyteamstudio.online</span>
             <button class="copy-btn" type="button" id="copyEmailBtn">Copy email</button>
             <span class="hint" id="copyStatus" style="margin:0;"></span>
           </div>
+
+          <a id="emailNowBtn" class="link-btn alt" href="#" style="margin-top:10px;">
+            Email Receipt Now →
+          </a>
 
           <p class="hint">
             Please include: <br />
@@ -497,7 +558,10 @@
     </div>
 
     <footer class="tt-footer" style="margin-top:24px;">
-      <p>TinyTeam Digital Studio · Engineered by BuildFrame System Agency</p>
+      <p>
+        TinyTeam Digital Library · Powered by BuildFrame Digital System ·
+        <a href="/help/">Help</a>
+      </p>
     </footer>
 
   </main>
@@ -520,12 +584,12 @@
 
   <script>
     // --- Reseller attribution (manual-first) ---
-    // Reads ?ref=CODE and stores it for attribution on later pages
+    // Reads ?ref=TTGL-XXXX-### and stores it for attribution on later pages
     const params = new URLSearchParams(window.location.search);
     const refFromUrl = params.get("ref");
     if (refFromUrl) localStorage.setItem("tt_ref", refFromUrl);
 
-    const storedRef = localStorage.getItem("tt_ref");
+    const storedRef = localStorage.getItem("tt_ref") || "";
     const attributionTitle = document.getElementById("attributionTitle");
     const attributionText = document.getElementById("attributionText");
 
@@ -555,6 +619,37 @@
         setTimeout(() => (copyStatus.textContent = ""), 2200);
       }
     });
+
+    // --- Email Receipt Now (prefilled draft) ---
+    const supportEmail = "smallsteps@tinyteamstudio.online";
+    const productName = "GEN-01 Legacy Family Tree";
+
+    const subject = encodeURIComponent(
+      `TinyTeam Payment Receipt — ${productName}${storedRef ? " — Ref " + storedRef : ""}`
+    );
+
+    const bodyLines = [
+      "Hello TinyTeam,",
+      "",
+      "I completed a QR payment. Here are my details:",
+      `• Product: ${productName}`,
+      "• Package: (Starter/Growth/Enterprise)",
+      "• Amount Paid: (write amount)",
+      "• Currency: (PHP/USD)",
+      "• Date Paid: (write date)",
+      "• Payment Method: (GCash/Maya/PNB/GoTyme)",
+      storedRef ? `• Reseller Code: ${storedRef}` : "• Reseller Code: (none / direct)",
+      "",
+      "Attached: Screenshot of successful payment",
+      "",
+      "Thank you."
+    ];
+
+    const body = encodeURIComponent(bodyLines.join("\n"));
+    const mailto = `mailto:${supportEmail}?subject=${subject}&body=${body}`;
+
+    const emailNowBtn = document.getElementById("emailNowBtn");
+    if (emailNowBtn) emailNowBtn.href = mailto;
 
     // --- Click-to-enlarge + download ---
     const modal = document.getElementById("qrModal");
@@ -594,12 +689,5 @@
       if (e.key === "Escape") closeModal();
     });
   </script>
-
-  <footer class="tt-footer">
-  <p>
-    TinyTeam Digital Library · Powered by BuildFrame Digital System
-  </p>
-</footer>
-
 </body>
 </html>
