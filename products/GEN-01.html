@@ -1,401 +1,421 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>GEN-01 · Legacy Family Tree Template · TinyTeam</title>
-    <meta
-      name="description"
-      content="GEN-01 Legacy Family Tree – a 4-generation genealogy template with a soft, story-style layout. Designed for printing, framing, and preserving family history."
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="../styles.css" />
-    <style>
-      body {
-        background: radial-gradient(
-          circle at top,
-          #fef9c3,
-          #f5ebe1 40%,
-          #e7e0d7 100%
-        );
-      }
+<head>
+  <meta charset="UTF-8" />
+  <title>GEN-01 · Legacy Family Tree Template · TinyTeam</title>
+  <meta
+    name="description"
+    content="GEN-01 Legacy Family Tree – a gentle, story-style genealogy template designed for printing, framing, and preserving family history."
+  />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../styles.css" />
 
-      .product-page {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 32px 16px 60px;
-      }
+  <style>
+    body {
+      background: radial-gradient(
+        circle at top,
+        #fef9c3,
+        #f5ebe1 40%,
+        #e7e0d7 100%
+      );
+    }
 
-      .crumbs {
-        font-size: 12px;
-        margin-bottom: 10px;
-      }
+    .product-page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 16px 60px;
+    }
 
-      .crumbs a {
-        color: #854d0e;
-        text-decoration: none;
-      }
+    .crumbs {
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
 
-      .crumbs a:hover {
-        text-decoration: underline;
-      }
+    .crumbs a {
+      color: #854d0e;
+      text-decoration: none;
+    }
 
-      .product-header-title {
-        font-size: 22px;
-        font-weight: 700;
-        margin: 0;
-      }
+    .crumbs a:hover {
+      text-decoration: underline;
+    }
 
-      .product-header-sub {
-        font-size: 13px;
-        color: #6b7280;
-        margin: 4px 0 0;
-      }
+    .product-header-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 0;
+    }
 
+    .product-header-sub {
+      font-size: 13px;
+      color: #6b7280;
+      margin: 4px 0 0;
+      max-width: 760px;
+      line-height: 1.5;
+    }
+
+    .product-layout {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.5fr);
+      gap: 18px;
+    }
+
+    .product-panel {
+      background: #fefcf7;
+      border-radius: 18px;
+      padding: 18px 16px 20px;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      box-shadow: 0 16px 40px rgba(148, 163, 184, 0.25);
+    }
+
+    .product-pill {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #78716c;
+      margin-bottom: 6px;
+    }
+
+    .product-lead {
+      font-size: 13px;
+      color: #4b5563;
+      margin-top: 6px;
+      line-height: 1.55;
+    }
+
+    .product-section {
+      margin-top: 14px;
+    }
+
+    .product-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin: 0 0 6px;
+    }
+
+    .product-section p {
+      font-size: 12px;
+      color: #6b7280;
+      margin: 0 0 10px;
+      line-height: 1.55;
+    }
+
+    .product-section ul,
+    .product-section ol {
+      padding-left: 18px;
+      margin: 6px 0 0;
+    }
+
+    .product-section li {
+      font-size: 12px;
+      color: #4b5563;
+      margin-bottom: 5px;
+      line-height: 1.5;
+    }
+
+    /* Pricing / payment panel */
+    .payment-panel {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 18px 16px 18px;
+      border: 1px solid rgba(217, 180, 130, 0.9);
+      box-shadow:
+        0 18px 40px rgba(87, 65, 37, 0.20),
+        0 0 0 1px rgba(255, 255, 255, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .payment-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 22px;
+      border: 1px solid rgba(250, 204, 21, 0.35);
+      pointer-events: none;
+    }
+
+    .payment-tag {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #a16207;
+      margin-bottom: 6px;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .price-main {
+      font-size: 24px;
+      font-weight: 800;
+      color: #1c1917;
+    }
+
+    .price-main span {
+      font-size: 14px;
+      font-weight: 600;
+      opacity: 0.8;
+    }
+
+    .price-note {
+      font-size: 11px;
+      color: #6b7280;
+      line-height: 1.45;
+    }
+
+    .payment-methods-title {
+      margin-top: 10px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #44403c;
+    }
+
+    .payment-buttons {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 750;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      background: rgba(249, 250, 251, 0.95);
+      color: #111827;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn-secondary span {
+      font-size: 11px;
+      opacity: 0.85;
+    }
+
+    .payment-note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #6b7280;
+      line-height: 1.55;
+    }
+
+    .small-muted {
+      font-size: 11px;
+      color: #9ca3af;
+      line-height: 1.45;
+    }
+
+    /* Reseller attribution note */
+    .attribution {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px dashed rgba(148, 163, 184, 0.8);
+      background: rgba(255, 255, 255, 0.85);
+      font-size: 12px;
+      color: #4b5563;
+      line-height: 1.5;
+    }
+
+    .product-footer {
+      margin-top: 26px;
+      border-top: 1px dashed rgba(148, 163, 184, 0.8);
+      padding-top: 12px;
+    }
+
+    @media (max-width: 768px) {
       .product-layout {
-        margin-top: 22px;
-        display: grid;
-        grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.5fr);
-        gap: 18px;
+        grid-template-columns: minmax(0, 1fr);
       }
+    }
+  </style>
+</head>
 
-      .product-panel {
-        background: #fefcf7;
-        border-radius: 18px;
-        padding: 18px 16px 20px;
-        border: 1px solid rgba(209, 213, 219, 0.9);
-        box-shadow: 0 16px 40px rgba(148, 163, 184, 0.4);
-      }
+<body>
+  <main class="product-page">
 
-      .product-pill {
-        font-size: 11px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.16em;
-        color: #78716c;
-        margin-bottom: 6px;
-      }
+    <!-- Breadcrumb -->
+    <div class="crumbs">
+      <a href="../index.html">TinyTeam home</a> ·
+      <a href="../templates/GEN-01/index.html">Preview GEN-01</a> ·
+      <span>GEN-01 Offer</span>
+    </div>
 
-      .product-lead {
-        font-size: 13px;
-        color: #4b5563;
-        margin-top: 4px;
-      }
+    <!-- Header -->
+    <header>
+      <h1 class="product-header-title">GEN-01 · Legacy Family Tree (4 generations)</h1>
+      <p class="product-header-sub">
+        A gentle, story-style family tree template that highlights parents,
+        grandparents, and great-grandparents in one organized, printable page.
+      </p>
+    </header>
 
-      .product-section {
-        margin-top: 14px;
-      }
+    <section class="product-layout">
 
-      .product-section h3 {
-        font-size: 13px;
-        font-weight: 600;
-        margin: 0 0 6px;
-      }
+      <!-- LEFT: Description -->
+      <article class="product-panel">
+        <div class="product-pill">GEN · Genealogy Template</div>
 
-      .product-section p {
-        font-size: 12px;
-        color: #6b7280;
-        margin: 0 0 6px;
-      }
-
-      .product-section ul {
-        padding-left: 18px;
-        margin: 4px 0 0;
-      }
-
-      .product-section li {
-        font-size: 12px;
-        color: #4b5563;
-        margin-bottom: 3px;
-      }
-
-      /* Pricing / payment panel */
-
-      .payment-panel {
-        background: #ffffff;
-        border-radius: 18px;
-        padding: 18px 16px 18px;
-        border: 1px solid rgba(217, 180, 130, 0.9);
-        box-shadow:
-          0 18px 40px rgba(87, 65, 37, 0.35),
-          0 0 0 1px rgba(255, 255, 255, 0.6);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .payment-panel::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: 22px;
-        border: 1px solid rgba(250, 204, 21, 0.4);
-        pointer-events: none;
-      }
-
-      .payment-tag {
-        font-size: 11px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.16em;
-        color: #a16207;
-        margin-bottom: 4px;
-      }
-
-      .price-row {
-        display: flex;
-        align-items: baseline;
-        gap: 8px;
-        margin-top: 4px;
-      }
-
-      .price-main {
-        font-size: 24px;
-        font-weight: 700;
-        color: #1c1917;
-      }
-
-      .price-main span {
-        font-size: 14px;
-        font-weight: 500;
-      }
-
-      .price-note {
-        font-size: 11px;
-        color: #6b7280;
-      }
-
-      .payment-methods-title {
-        margin-top: 10px;
-        font-size: 12px;
-        font-weight: 600;
-        color: #44403c;
-      }
-
-      .payment-buttons {
-        margin-top: 8px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .btn-secondary {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 8px 14px;
-        border-radius: 999px;
-        font-size: 12px;
-        font-weight: 600;
-        border: 1px solid rgba(148, 163, 184, 0.9);
-        background: rgba(249, 250, 251, 0.95);
-        color: #111827;
-        text-decoration: none;
-        cursor: pointer;
-      }
-
-      .btn-secondary span {
-        font-size: 11px;
-        opacity: 0.85;
-      }
-
-      .payment-note {
-        margin-top: 8px;
-        font-size: 11px;
-        color: #6b7280;
-      }
-
-      .small-muted {
-        font-size: 11px;
-        color: #9ca3af;
-      }
-
-      .product-footer {
-        margin-top: 26px;
-        font-size: 11px;
-        color: #a8a29e;
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 10px;
-        border-top: 1px dashed rgba(148, 163, 184, 0.8);
-        padding-top: 10px;
-      }
-
-      @media (max-width: 768px) {
-        .product-layout {
-          grid-template-columns: minmax(0, 1fr);
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <main class="product-page">
-      <!-- Breadcrumb -->
-      <div class="crumbs">
-        <a href="../index.html">TinyTeam home</a> ·
-        <a href="../templates/GEN-01/index.html">Preview GEN-01</a> ·
-        <span>GEN-01 Offer</span>
-      </div>
-
-      <!-- Header -->
-      <header>
-        <h1 class="product-header-title">
-          GEN-01 · Legacy Family Tree (4 generations)
-        </h1>
-        <p class="product-header-sub">
-          A gentle, story-style family tree template that highlights parents,
-          grandparents, and great-grandparents in one organized, printable
-          page.
+        <p class="product-lead">
+          GEN-01 is made for families who want something softer than a technical chart —
+          a layout that feels like a page from a family journal, while still keeping the hierarchy clear.
         </p>
-      </header>
 
-      <section class="product-layout">
-        <!-- LEFT: Description -->
-        <article class="product-panel">
-          <div class="product-pill">GEN · Genealogy Template</div>
-          <p class="product-lead">
-            GEN-01 is made for families who want something softer than a
-            technical chart — a layout that looks like a page from a family
-            journal, while still keeping the hierarchy clear.
-          </p>
+        <div class="product-section">
+          <h3>Who this template is for</h3>
+          <ul>
+            <li>Families documenting 3–4 generations in one view.</li>
+            <li>Children or grandchildren preparing a gift for parents or grandparents.</li>
+            <li>Small communities or groups who want a simple ancestry sheet without complicated software.</li>
+          </ul>
+        </div>
 
-          <div class="product-section">
-            <h3>Who this template is for</h3>
-            <ul>
-              <li>Families documenting 3–4 generations in one view.</li>
-              <li>
-                Children or grandchildren preparing a gift for parents or
-                grandparents.
-              </li>
-              <li>
-                Small communities or groups that want a simple ancestry sheet
-                without complicated software.
-              </li>
-            </ul>
-          </div>
+        <div class="product-section">
+          <h3>What you receive</h3>
+          <ul>
+            <li>1 × high-resolution template (PNG or JPG) for GEN-01 · Legacy Family Tree.</li>
+            <li>1 × print-ready PDF (A4 or US Letter).</li>
+            <li>Blank layout ready to write by hand or fill via a design tool (Canva, etc.).</li>
+            <li>Simple usage guide: how to map names, dates, and notes into each generation.</li>
+            <li>License for personal and family use.</li>
+          </ul>
+        </div>
 
-          <div class="product-section">
-            <h3>What you receive</h3>
-            <ul>
-              <li>
-                1 × high-resolution template (PNG or JPG) for GEN-01 · Legacy
-                Family Tree.
-              </li>
-              <li>1 × print-ready PDF (A4 or US Letter).</li>
-              <li>
-                Blank layout, ready to be written by hand or filled via a
-                design tool (Canva, etc.).
-              </li>
-              <li>
-                Simple usage guide: how to map names, dates, and notes into each
-                generation.
-              </li>
-              <li>License for personal and family use.</li>
-            </ul>
-          </div>
-
-          <div class="product-section">
-            <h3>How it works</h3>
-            <ol style="padding-left: 18px; margin: 4px 0 0;">
-              <li style="font-size: 12px; color: #4b5563;">
-                <strong>Step 1 – Choose &amp; pay.</strong> Use PayPal or QR
-                payment to complete your purchase for GEN-01.
-              </li>
-              <li style="font-size: 12px; color: #4b5563;">
-                <strong>Step 2 – Send your receipt.</strong> Email your payment
-                screenshot and preferred format (A4 / US Letter) to
-                <em>your email here</em>.
-              </li>
-              <li style="font-size: 12px; color: #4b5563;">
-                <strong>Step 3 – Receive your files.</strong> You’ll receive the
-                template files and quick guide by email within 24–48 hours
-                (manual delivery, for now).
-              </li>
-            </ol>
-            <p class="small-muted">
-              (*You can update the email address and delivery time later to
-              match your real workflow.)
-            </p>
-          </div>
-        </article>
-
-        <!-- RIGHT: Pricing & Payment -->
-        <aside class="payment-panel">
-          <div class="payment-tag">Intro pricing · Digital download</div>
-
-          <div class="price-row">
-            <div class="price-main">
-              <span>USD</span> 15
-            </div>
-          </div>
-          <p class="price-note">
-            One-time payment for personal/family use. No subscription, no
-            recurring fees.
-          </p>
-
-          <div class="product-section" style="margin-top: 10px;">
-            <h3>What’s included in this purchase</h3>
-            <ul>
-              <li>GEN-01 Legacy Family Tree template (4 generations).</li>
-              <li>Printable + digital formats.</li>
-              <li>Personal/family-use license.</li>
-            </ul>
-          </div>
-
-          <p class="payment-methods-title">Available payment methods</p>
-          <div class="payment-buttons">
-            <!-- Replace "#" with your real PayPal link later -->
-            <a href="#" class="btn-primary">Pay via PayPal</a>
-
-            <!-- ✅ Correct link to QR instructions page -->
-            <a href="../payments/qr.html" class="btn-secondary">
-              Pay via QR
-              <span>&nbsp;· GCash / Maya / Bank</span>
-            </a>
-          </div>
-
-          <p class="payment-note">
-            After payment, please email your receipt and template name
-            <strong>“GEN-01 Legacy Family Tree”</strong> to
-            <em>your email here</em> so we can send your files.
-          </p>
-
+        <div class="product-section">
+          <h3>How it works (manual delivery for now)</h3>
+          <ol>
+            <li><strong>Step 1 – Pay via QR.</strong> Complete your payment using our QR page.</li>
+            <li>
+              <strong>Step 2 – Send your receipt.</strong> Email your payment screenshot and preferred output
+              (<strong>A5 / A4 / A3 / Book</strong>) to
+              <strong>smallsteps@tinyteamstudio.online</strong>.
+            </li>
+            <li>
+              <strong>Step 3 – Receive your files.</strong> We send your files within
+              <strong>24–48 hours</strong> after verification.
+            </li>
+          </ol>
           <p class="small-muted">
-            In future, this section can be fully automated using the BuildFrame
-            System Agency backend (affiliate links, instant delivery, etc.).
+            Later, BuildFrame can automate delivery and reseller reporting — but this manual flow already works.
           </p>
-        </aside>
-      </section>
+        </div>
+      </article>
 
-      <section class="product-section" style="margin-top: 24px;">
-        <h3>Frequently asked questions</h3>
-        <p><strong>Can I edit the template?</strong></p>
-        <p>
-          Yes. You can print it and write by hand, or place it inside your
-          preferred design tool (Canva, etc.) and add text layers on top.
+      <!-- RIGHT: Pricing & Payment -->
+      <aside class="payment-panel">
+        <div class="payment-tag">Digital template · Manual delivery</div>
+
+        <div class="price-row">
+          <div class="price-main"><span>USD</span> 15</div>
+        </div>
+        <p class="price-note">
+          One-time payment for personal/family use. No subscription, no recurring fees.
         </p>
 
-        <p><strong>Can I use this for clients?</strong></p>
-        <p>
-          This offer is for personal and family use. If you want to use this as
-          part of a paid service for clients, you can create a separate
-          “commercial use” offer later or bundle it inside a bigger package.
+        <div class="product-section" style="margin-top: 10px;">
+          <h3>What’s included in this purchase</h3>
+          <ul>
+            <li>GEN-01 Legacy Family Tree template (4 generations).</li>
+            <li>Printable + digital formats.</li>
+            <li>Personal/family-use license.</li>
+          </ul>
+        </div>
+
+        <p class="payment-methods-title">Payment method</p>
+        <div class="payment-buttons">
+          <a id="payViaQrBtn" href="../payments/qr.html" class="btn-secondary">
+            Pay via QR <span>&nbsp;· GCash / Maya / PNB / GoTyme</span>
+          </a>
+          <a href="../help/" class="btn-secondary">Help</a>
+        </div>
+
+        <div class="attribution" id="attributionBox" style="display:none;">
+          <strong style="display:block; margin-bottom:4px;">Reseller attribution</strong>
+          <span id="attributionText">Loading…</span>
+        </div>
+
+        <p class="payment-note">
+          After payment, email your receipt and the template name
+          <strong>“GEN-01 Legacy Family Tree”</strong> to
+          <strong>smallsteps@tinyteamstudio.online</strong>.
         </p>
 
-        <p><strong>Will there be more genealogy templates?</strong></p>
-        <p>
-          Yes. GEN-01 is the first template in the TinyTeam Genealogy
-          Collection. Future GEN templates may cover extended family branches,
-          clans, or more detailed layouts.
+        <p class="small-muted">
+          Tip: If you used a reseller link, the system will automatically credit the reseller code shown above.
         </p>
-      </section>
+      </aside>
+    </section>
 
-      <footer class="product-footer">
-        <span>
-          TinyTeam Digital Studio · GEN-01 Legacy Family Tree · GenComm
-          Templates.
-        </span>
-        <span>Engineered by BuildFrame Digital System.</span>
-      </footer>
-    </main>
-  </body>
+    <section class="product-section" style="margin-top: 24px;">
+      <h3>Frequently asked questions</h3>
+
+      <p><strong>Can I edit the template?</strong></p>
+      <p>
+        Yes. You can print it and write by hand, or place it inside your preferred design tool (Canva, etc.)
+        and add text layers on top.
+      </p>
+
+      <p><strong>Can I use this for clients?</strong></p>
+      <p>
+        This offer is for personal and family use. If you want to use this as part of a paid service for clients,
+        you can create a separate commercial offer later or bundle it inside a bigger package.
+      </p>
+
+      <p><strong>Will there be more genealogy templates?</strong></p>
+      <p>
+        Yes. GEN-01 is the first template in the TinyTeam Genealogy Collection. Future GEN templates may cover
+        extended family branches, clans, or more detailed layouts.
+      </p>
+    </section>
+
+    <!-- Standard footer -->
+    <footer class="tt-footer">
+      <p>
+        TinyTeam Digital Library · Powered by BuildFrame Digital System ·
+        <a href="/help/">Help</a>
+      </p>
+    </footer>
+
+  </main>
+
+  <script>
+    // --- Reseller attribution capture (GitHub-only, manual-first) ---
+    // If reseller shares: products/GEN-01.html?ref=TTGL-XXXX-### we store it.
+    const params = new URLSearchParams(window.location.search);
+    const refFromUrl = params.get("ref");
+    if (refFromUrl) localStorage.setItem("tt_ref", refFromUrl);
+
+    const storedRef = localStorage.getItem("tt_ref") || "";
+
+    // Update the QR link to carry the reseller code (so attribution remains even if localStorage is blocked)
+    const qrBtn = document.getElementById("payViaQrBtn");
+    if (qrBtn && storedRef) {
+      const base = qrBtn.getAttribute("href");
+      qrBtn.setAttribute("href", `${base}?ref=${encodeURIComponent(storedRef)}`);
+    }
+
+    // Show attribution message if applicable
+    const box = document.getElementById("attributionBox");
+    const text = document.getElementById("attributionText");
+
+    if (box && text && storedRef) {
+      box.style.display = "block";
+      text.innerHTML =
+        `This visit is credited to reseller <b>${storedRef}</b>. If you purchase, a <b>25% commission</b> applies.`;
+    }
+  </script>
+</body>
 </html>
