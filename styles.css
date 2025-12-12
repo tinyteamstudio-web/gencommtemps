@@ -16,6 +16,10 @@ body {
   margin-bottom: 12px;
 }
 
+* { box-sizing: border-box; }
+img { max-width: 100%; height: auto; }
+body { overflow-x: hidden; }
+
 .tt-section {
   max-width: 900px;
   margin: 64px auto;
