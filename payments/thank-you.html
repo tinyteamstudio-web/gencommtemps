@@ -34,6 +34,7 @@
     .crumbs a {
       color: rgba(15, 118, 110, 0.95);
       text-decoration: none;
+      font-weight: 800;
     }
     .crumbs a:hover {
       text-decoration: underline;
@@ -73,7 +74,7 @@
       padding: 10px 14px;
       text-decoration: none;
       font-size: 12px;
-      font-weight: 850;
+      font-weight: 900;
       border: 1px solid rgba(99, 102, 241, 0.25);
       background: rgba(99, 102, 241, 0.08);
       color: rgba(67, 56, 202, 1);
@@ -121,6 +122,7 @@
       margin: 6px 0 0;
       font-size: 13px;
       color: rgba(55, 65, 81, 0.85);
+      line-height: 1.55;
     }
 
     .pill {
@@ -132,9 +134,10 @@
       background: rgba(16, 185, 129, 0.10);
       border: 1px solid rgba(16, 185, 129, 0.25);
       color: rgba(5, 150, 105, 1);
-      font-weight: 900;
+      font-weight: 950;
       font-size: 12px;
       width: fit-content;
+      margin-bottom: 10px;
     }
 
     .steps ol {
@@ -145,6 +148,7 @@
       margin-bottom: 6px;
       font-size: 13px;
       color: rgba(55, 65, 81, 0.85);
+      line-height: 1.5;
     }
 
     .email-box {
@@ -169,7 +173,7 @@
     }
     .email-value {
       font-size: 14px;
-      font-weight: 800;
+      font-weight: 950;
       color: rgba(17, 24, 39, 0.95);
     }
     .copy-btn {
@@ -179,9 +183,10 @@
       border-radius: 999px;
       padding: 8px 12px;
       font-size: 12px;
-      font-weight: 750;
+      font-weight: 900;
       cursor: pointer;
     }
+    .copy-btn:active { transform: translateY(1px); }
 
     .hint {
       margin-top: 8px;
@@ -207,9 +212,16 @@
     }
 
     @media (max-width: 560px) {
-      .hero h1 {
-        font-size: 23px;
-      }
+      .hero h1 { font-size: 23px; }
+    }
+
+    /* Tiny logo support for footer */
+    .tt-footer-logo {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+      border-radius: 3px;
+      display: inline-block;
     }
   </style>
 </head>
@@ -233,8 +245,8 @@
       </p>
 
       <div class="nav-row">
-        <a class="link-btn alt" href="../products/GEN-01.html">← Back to GEN-01</a>
-        <a class="link-btn alt" href="../payments/qr.html">Pay via QR →</a>
+        <a class="link-btn alt" id="backToGenBtn" href="../products/GEN-01.html">← Back to GEN-01</a>
+        <a class="link-btn alt" id="payViaQrBtn" href="../payments/qr.html">Pay via QR →</a>
         <a class="link-btn" href="../help/">Help</a>
         <a class="link-btn alt" href="../index.html">TinyTeam Home</a>
       </div>
@@ -270,6 +282,10 @@
             <span class="hint" id="copyStatus" style="margin:0;"></span>
           </div>
 
+          <a id="emailNowBtn" class="link-btn alt" href="#" style="margin-top:10px;">
+            Email Receipt Now →
+          </a>
+
           <p class="hint">
             Please include: <br />
             • Template name: <strong>GEN-01 Legacy Family Tree</strong><br />
@@ -290,7 +306,6 @@
         </p>
 
         <div class="tt-video">
-          <!-- Placeholder only — replace VIDEO_ID later -->
           <iframe
             src="https://www.youtube.com/embed/VIDEO_ID"
             title="TinyTeam Quick Tutorial"
@@ -316,22 +331,49 @@
 
     </div>
 
+    <!-- Footer with logos + correct relative links -->
     <footer class="tt-footer" style="margin-top:24px;">
-      <p>
-        TinyTeam Digital Library · Powered by BuildFrame Digital System ·
-        <a href="/help/">Help</a>
-      </p>
+      <div class="tt-footer-inner">
+
+        <div class="tt-footer-brand">
+          <img
+            src="../assets/logo/tinyteam-logo.jpeg"
+            alt="TinyTeam Digital Library"
+            class="tt-footer-logo"
+            loading="lazy"
+          />
+          <span>TinyTeam Digital Library</span>
+        </div>
+
+        <div class="tt-footer-powered">
+          <span>Powered by</span>
+          <img
+            src="../assets/logo/buildframe-logo.png"
+            alt="BuildFrame Digital System"
+            class="tt-footer-logo"
+            loading="lazy"
+          />
+          <span>BuildFrame Digital System</span>
+        </div>
+
+        <div class="tt-footer-help">
+          <a href="../help/">Help</a>
+        </div>
+
+      </div>
     </footer>
 
   </main>
 
   <script>
-    // --- Ensure reseller ref persists (if user lands here first) ---
+    // --- Ensure reseller ref persists ---
     const params = new URLSearchParams(window.location.search);
     const refFromUrl = params.get("ref");
     if (refFromUrl) localStorage.setItem("tt_ref", refFromUrl);
 
     const storedRef = localStorage.getItem("tt_ref") || "";
+
+    // --- Attribution copy ---
     const attributionTitle = document.getElementById("attributionTitle");
     const attributionText = document.getElementById("attributionText");
 
@@ -345,22 +387,69 @@
         "No reseller code detected. This purchase will be recorded as a direct TinyTeam sale.";
     }
 
-    // --- Copy email button ---
+    // --- Keep ref across buttons ---
+    const backToGenBtn = document.getElementById("backToGenBtn");
+    const payViaQrBtn = document.getElementById("payViaQrBtn");
+
+    function appendRefIfNeeded(anchorEl) {
+      if (!anchorEl || !storedRef) return;
+      const base = anchorEl.getAttribute("href");
+      anchorEl.setAttribute("href", `${base}?ref=${encodeURIComponent(storedRef)}`);
+    }
+
+    appendRefIfNeeded(backToGenBtn);
+    appendRefIfNeeded(payViaQrBtn);
+
+    // --- Copy email button (safe) ---
     const copyBtn = document.getElementById("copyEmailBtn");
     const emailEl = document.getElementById("supportEmail");
     const copyStatus = document.getElementById("copyStatus");
 
-    copyBtn.addEventListener("click", async () => {
-      const email = emailEl.textContent.trim();
-      try {
-        await navigator.clipboard.writeText(email);
-        copyStatus.textContent = "Copied ✔";
-        setTimeout(() => (copyStatus.textContent = ""), 1600);
-      } catch (e) {
-        copyStatus.textContent = "Copy failed — please copy manually.";
-        setTimeout(() => (copyStatus.textContent = ""), 2200);
-      }
-    });
+    if (copyBtn && emailEl && copyStatus) {
+      copyBtn.addEventListener("click", async () => {
+        const email = emailEl.textContent.trim();
+        try {
+          await navigator.clipboard.writeText(email);
+          copyStatus.textContent = "Copied ✔";
+          setTimeout(() => (copyStatus.textContent = ""), 1600);
+        } catch (e) {
+          copyStatus.textContent = "Copy failed — please copy manually.";
+          setTimeout(() => (copyStatus.textContent = ""), 2200);
+        }
+      });
+    }
+
+    // --- Email Receipt Now (prefilled draft) ---
+    const supportEmail = "smallsteps@tinyteamstudio.online";
+    const productName = "GEN-01 Legacy Family Tree";
+
+    const subject = encodeURIComponent(
+      `TinyTeam Payment Receipt — ${productName}${storedRef ? " — Ref " + storedRef : ""}`
+    );
+
+    const bodyLines = [
+      "Hello TinyTeam,",
+      "",
+      "I completed a QR payment. Here are my details:",
+      `• Product: ${productName}`,
+      "• Package: (Starter/Growth/Enterprise)",
+      "• Amount Paid: (write amount)",
+      "• Currency: (PHP/USD)",
+      "• Date Paid: (write date)",
+      "• Payment Method: (GCash/Maya/PNB/GoTyme)",
+      storedRef ? `• Reseller Code: ${storedRef}` : "• Reseller Code: (none / direct)",
+      "• Preferred output: (A5/A4/A3/Book)",
+      "",
+      "Attached: Screenshot of successful payment",
+      "",
+      "Thank you."
+    ];
+
+    const body = encodeURIComponent(bodyLines.join("\n"));
+    const mailto = `mailto:${supportEmail}?subject=${subject}&body=${body}`;
+
+    const emailNowBtn = document.getElementById("emailNowBtn");
+    if (emailNowBtn) emailNowBtn.href = mailto;
   </script>
 </body>
 </html>
