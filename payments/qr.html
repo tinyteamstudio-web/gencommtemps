@@ -184,6 +184,19 @@
     Loading…
   </p>
 </div>
+// 🧸 Step 1: Reseller attribution message (kindergarten version)
+const attributionTitle = document.getElementById("attributionTitle");
+const attributionText = document.getElementById("attributionText");
+
+if (storedRef) {
+  attributionTitle.textContent = "Reseller sale";
+  attributionText.innerHTML =
+    `This purchase is credited to reseller <b class="mono">${storedRef}</b>. A <b>25% reseller commission</b> applies.`;
+} else {
+  attributionTitle.textContent = "Direct TinyTeam sale";
+  attributionText.textContent =
+    "No reseller code detected. This purchase will be recorded as a direct TinyTeam sale.";
+}
 
       <!-- Page header -->
       <header>
