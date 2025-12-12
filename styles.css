@@ -60,3 +60,39 @@ body {
 .tt-list li {
   margin-bottom: 8px;
 }
+
+.tt-thankyou {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 64px 20px;
+}
+
+.tt-block {
+  margin-bottom: 48px;
+}
+
+.tt-soft {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+}
+
+.tt-thankyou h1 {
+  font-size: 2rem;
+}
+
+.tt-thankyou h2 {
+  margin-bottom: 12px;
+}
+
+.tt-thankyou h3 {
+  margin-top: 20px;
+}
+
+.tt-thankyou ol {
+  padding-left: 20px;
+}
+
+.tt-thankyou details {
+  margin-bottom: 10px;
+}
