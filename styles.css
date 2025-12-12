@@ -142,3 +142,28 @@ body { overflow-x: hidden; }
 .tt-footer a:hover {
   text-decoration: underline;
 }
+
+/* =========================
+   TinyTeam – Global UI helpers
+   ========================= */
+
+.tt-hero-links {
+  margin-top: 14px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tt-link {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #0f766e;
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.tt-link:hover {
+  border-bottom-color: rgba(15, 118, 110, 0.5);
+}
