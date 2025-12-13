@@ -1,1 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Family Digital Library</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A living digital library for family and legacy." />
+
+  <!-- Global site styles -->
+  <link rel="stylesheet" href="../../../styles.css" />
+  <!-- Library-local styles -->
+  <link rel="stylesheet" href="library.css" />
+</head>
+
+<body>
+
+<header class="trust-bar">
+  <div class="trust-left">
+    <img src="../../../assets/logo/tinyteam-square.png" alt="TinyTeam" class="tiny-logo" />
+    <span>TinyTeam Digital Library</span>
+  </div>
+  <div class="trust-right">
+    <a href="../../../index.html">Main Library</a>
+    <a href="mailto:smallsteps@tinyteamstudio.online">Email</a>
+    <a href="../../../help/index.html">Help</a>
+  </div>
+</header>
+
+<section class="band band-hero">
+  <div class="content library-wrap">
+    <div class="library-hero">
+      <div>
+        <h1 id="libraryTitle">Family Digital Library</h1>
+        <p class="lead">
+          Welcome. This is a living legacy archive — designed to preserve names, relationships,
+          and memories with care, respect, and long-term access.
+        </p>
+
+        <div class="cta-group">
+          <a class="btn primary" href="#people">View People</a>
+          <a class="btn secondary" href="#memorials">In Loving Memory</a>
+        </div>
+
+        <p class="mini-note" style="margin-top:1rem;">
+          Tip: You can share this link with family members who want to view the library.
+        </p>
+      </div>
+
+      <div class="library-card">
+        <h3>How to use this page</h3>
+        <ul class="list-tight">
+          <li>Scroll to see the people list</li>
+          <li>Memorial notes appear below (if included)</li>
+          <li>Updates can be requested anytime by email</li>
+        </ul>
+        <p class="mini-note">
+          This library is handled with respect. Sensitive details may be kept minimal by request.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-white" id="people">
+  <div class="content library-wrap">
+    <h2>People</h2>
+    <p class="mini-note">
+      Names listed here are part of this library. Details may be expanded over time.
+    </p>
+
+    <div class="library-controls">
+      <input id="searchInput" class="library-search" type="search" placeholder="Search a name…" />
+      <span class="library-count" id="peopleCount">Loading…</span>
+    </div>
+
+    <div id="peopleList" class="people-grid" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="band band-hero" id="memorials">
+  <div class="content library-wrap">
+    <h2>In Loving Memory</h2>
+    <p class="mini-note">
+      This section honors loved ones who have passed away.
+    </p>
+
+    <div id="memorialList" class="memorial-grid" aria-live="polite"></div>
+    <p id="memorialEmpty" class="mini-note" style="display:none; margin-top:1rem;">
+      No memorial entries have been added yet.
+    </p>
+  </div>
+</section>
+
+<section class="band band-white">
+  <div class="content library-wrap center">
+    <h2>Request an Update</h2>
+    <p class="mini-note">
+      To add a person, update a name, or include a memorial note, email us anytime.
+    </p>
+    <div class="cta-group">
+      <a class="btn primary" href="mailto:smallsteps@tinyteamstudio.online?subject=Library%20Update%20Request">Email TinyTeam</a>
+      <a class="btn ghost" href="../../../submit/index.html">Guided Submission</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>
+    <img src="../../../assets/logo/tinyteam-square.png" class="tiny-icon" />
+    TinyTeam Digital Library ·
+    <img src="../../../assets/logo/buildframe-square.png" class="tiny-icon" />
+    Powered by BuildFrame Digital System ·
+    <a href="../../../help/index.html">Help</a>
+  </p>
+</footer>
+
+<script>
+  // --- Helpers ---
+  const $ = (id) => document.getElementById(id);
+
+  async function fetchJSON(path) {
+    const res = await fetch(path, { cache: "no-store" });
+    if (!res.ok) throw new Error("Failed to load " + path);
+    return res.json();
+  }
+
+  function safeText(str) {
+    return String(str ?? "").trim();
+  }
+
+  // --- Render People ---
+  function renderPeople(people) {
+    const list = $("peopleList");
+    list.innerHTML = "";
+
+    people.forEach(p => {
+      const name = safeText(p.displayName || p.fullName || "Unnamed");
+      const status = safeText(p.status || "");
+      const notes = safeText(p.notes || "");
+
+      const card = document.createElement("div");
+      card.className = "person-card";
+      card.innerHTML = `
+        <h3 class="person-name">${name}</h3>
+        ${status ? `<p class="person-meta"><strong>Status:</strong> ${status}</p>` : ""}
+        ${notes ? `<p class="person-notes">${notes}</p>` : ""}
+      `;
+      list.appendChild(card);
+    });
+
+    $("peopleCount").textContent = `${people.length} record${people.length === 1 ? "" : "s"}`;
+  }
+
+  // --- Render Memorials ---
+  function renderMemorials(memorials, peopleMap) {
+    const list = $("memorialList");
+    list.innerHTML = "";
+
+    if (!Array.isArray(memorials) || memorials.length === 0) {
+      $("memorialEmpty").style.display = "block";
+      return;
+    }
+
+    $("memorialEmpty").style.display = "none";
+
+    memorials.forEach(m => {
+      const person = peopleMap.get(m.personId) || {};
+      const name = safeText(person.displayName || person.fullName || "Loved One");
+      const title = safeText(m.title || "In Loving Memory");
+      const message = safeText(m.message || "");
+      const photo = safeText(m.photo || "");
+
+      const card = document.createElement("div");
+      card.className = "memorial-card";
+      card.innerHTML = `
+        <h3 class="memorial-title">${title}</h3>
+        <p class="memorial-name">${name}</p>
+        ${photo ? `<img class="memorial-photo" src="assets/photos/${photo}" alt="${name}" />` : ""}
+        ${message ? `<p class="memorial-message">${message}</p>` : ""}
+      `;
+      list.appendChild(card);
+    });
+  }
+
+  // --- Search ---
+  function setupSearch(allPeople) {
+    const input = $("searchInput");
+    input.addEventListener("input", () => {
+      const q = safeText(input.value).toLowerCase();
+      const filtered = allPeople.filter(p => {
+        const name = safeText(p.displayName || p.fullName).toLowerCase();
+        return name.includes(q);
+      });
+      renderPeople(filtered);
+    });
+  }
+
+  // --- Init ---
+  (async function init() {
+    try {
+      const people = await fetchJSON("people.json");
+      const memorials = await fetchJSON("memorials.json");
+
+      // Map for memorial name lookup
+      const peopleMap = new Map();
+      (people || []).forEach(p => peopleMap.set(p.id, p));
+
+      renderPeople(people || []);
+      setupSearch(people || []);
+      renderMemorials(memorials || [], peopleMap);
+    } catch (err) {
+      console.error(err);
+      $("peopleCount").textContent = "Unable to load records.";
+      $("peopleList").innerHTML = `
+        <div class="soft-box">
+          <h3>Library data not loaded</h3>
+          <p class="mini-note">
+            This usually happens if files are missing or paths are incorrect.
+            Please check that <strong>people.json</strong> and <strong>memorials.json</strong> exist in this folder.
+          </p>
+        </div>
+      `;
+    }
+  })();
+</script>
+
+</body>
+</html>
 
