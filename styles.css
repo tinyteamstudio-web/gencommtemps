@@ -1,11 +1,19 @@
-/* =========================================
-   Global Safety Rules (Device Compatibility)
-   ========================================= */
+/* =========================================================
+   TinyTeam Digital Library — Global Styles (Clean + Safe)
+   Device compatibility first.
+   ========================================================= */
 
+/* ===== Global Safety Rules (Device Compatibility) ===== */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
 img {
@@ -15,170 +23,119 @@ img {
 }
 
 body {
-  margin: 0;
   overflow-x: hidden;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  color: #222;
-  background: #fafafa;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: rgba(17, 24, 39, 0.92);
+  background: #fafafa; /* page-level pages can override with inline gradients */
+  line-height: 1.5;
 }
 
-/* =========================================
-   HERO
-   ========================================= */
-
-.tt-hero {
-  padding: 80px 20px;
-  background: linear-gradient(135deg, #d8f3f1, #e9ddf7);
-}
-
-.tt-hero h1 {
-  font-size: 2.2rem;
-  margin-bottom: 12px;
-}
-
-.tt-hero-links {
-  margin-top: 14px;
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-/* =========================================
-   LINKS & BUTTONS
-   ========================================= */
-
-.tt-link {
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: #0f766e;
+/* ===== Global Links ===== */
+a {
+  color: rgba(15, 118, 110, 0.95);
   text-decoration: none;
-  padding-bottom: 2px;
-  border-bottom: 2px solid transparent;
-}
-
-.tt-link:hover {
-  border-bottom-color: rgba(15, 118, 110, 0.5);
-}
-
-.tt-button {
-  display: inline-block;
-  padding: 12px 24px;
-  background: #4f46e5;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
   font-weight: 700;
 }
 
-/* =========================================
-   SECTIONS
-   ========================================= */
-
-.tt-section {
-  max-width: 900px;
-  margin: 64px auto;
-  padding: 0 20px;
+a:hover {
+  text-decoration: underline;
 }
 
-.tt-section h2 {
-  margin-bottom: 12px;
+/* ===== Utility (Optional) ===== */
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
 }
 
-.tt-soft {
-  background: #ffffff;
-  padding: 48px 20px;
-  border-radius: 16px;
-}
-
-.tt-list {
-  padding-left: 20px;
-}
-
-.tt-list li {
-  margin-bottom: 8px;
-}
-
-/* =========================================
-   SPLIT LAYOUT (Images + Text)
-   ========================================= */
-
-.tt-split {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: 28px;
+/* =========================================================
+   Buttons (Reusable)
+   ========================================================= */
+.btn-primary {
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  background: rgba(99, 102, 241, 0.10);
+  color: rgba(67, 56, 202, 1);
+  text-decoration: none;
 }
 
-.tt-split.reverse {
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+.btn-primary:hover {
+  filter: brightness(0.98);
+  text-decoration: none;
 }
 
-.tt-split img {
-  max-width: 420px;
-  width: 100%;
-  border-radius: 14px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+  border: 1px solid rgba(15, 118, 110, 0.25);
+  background: rgba(15, 118, 110, 0.08);
+  color: rgba(15, 118, 110, 0.95);
+  text-decoration: none;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  .tt-split,
-  .tt-split.reverse {
-    grid-template-columns: 1fr;
-  }
-
-  .tt-split img {
-    margin-top: 16px;
-  }
+.btn-secondary:hover {
+  filter: brightness(0.98);
+  text-decoration: none;
 }
 
-/* =========================================
-   CTA
-   ========================================= */
+/* =========================================================
+   Help + Thank You page base containers
+   (so they are consistent even if they have inline CSS too)
+   ========================================================= */
 
-.tt-cta {
-  text-align: center;
-  padding: 80px 20px;
-  background: #ffffff;
+.tt-help,
+.tt-thankyou {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 36px 16px 70px;
 }
-
-/* =========================================
-   HELP / THANK YOU BLOCKS
-   ========================================= */
 
 .tt-block {
-  margin-bottom: 48px;
+  margin-bottom: 18px;
 }
 
-.tt-thankyou {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 64px 20px;
+.tt-intro {
+  margin: 10px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(55, 65, 81, 0.86);
 }
 
-.tt-thankyou h1 {
-  font-size: 2rem;
-}
-
-.tt-thankyou h2 {
-  margin-bottom: 12px;
-}
-
-.tt-thankyou h3 {
-  margin-top: 20px;
-}
-
-.tt-thankyou ol {
-  padding-left: 20px;
-}
-
-.tt-thankyou details {
+/* Details FAQ styling */
+details {
+  border: 1px solid rgba(229, 231, 235, 0.9);
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 14px;
+  padding: 12px 14px;
   margin-bottom: 10px;
 }
 
-/* =========================================
+summary {
+  cursor: pointer;
+  font-weight: 900;
+  color: rgba(17, 24, 39, 0.92);
+}
+
+details p {
+  margin: 10px 0 0;
+  color: rgba(55, 65, 81, 0.85);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* =========================================================
    FOOTER (Tiny logos, professional)
-   ========================================= */
+   ========================================================= */
 
 .tt-footer {
   margin-top: 28px;
@@ -188,6 +145,8 @@ body {
 }
 
 .tt-footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -213,7 +172,7 @@ body {
 .tt-footer a {
   color: rgba(15, 118, 110, 0.95);
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .tt-footer a:hover {
