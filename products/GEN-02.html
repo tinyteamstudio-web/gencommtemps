@@ -8,22 +8,21 @@
   <link rel="stylesheet" href="../styles.css" />
 
   <style>
-    /* Page-specific, minimal */
-    .product-wrap {
-      max-width: 1000px;
-      margin: auto;
-    }
-
+    /* Page-specific (minimal + non-overlapping) */
+    .product-wrap { max-width: 1000px; margin: auto; }
     .product-hero {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2.5rem;
-      align-items: center;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.25rem;
+      align-items: start;
+    }
+    @media (max-width: 860px) {
+      .product-hero { grid-template-columns: 1fr; }
     }
 
     .badge {
       display: inline-block;
-      padding: 0.25rem 0.6rem;
+      padding: 0.25rem 0.65rem;
       border-radius: 999px;
       background: #e5e7eb;
       font-size: 0.75rem;
@@ -31,47 +30,43 @@
       margin-bottom: 0.75rem;
     }
 
-    .price-tag {
-      font-size: 2.4rem;
-      margin: 0.5rem 0 1rem;
-    }
+    .price-tag { font-size: 2.4rem; margin: 0.5rem 0 0.75rem; }
 
     .soft-box {
       background: #f8fafc;
       border: 1px solid #e5e7eb;
       border-radius: 16px;
       padding: 1.6rem;
-      margin: 2.2rem 0;
+      margin: 1.6rem 0;
     }
 
-    .list-tight li {
-      margin-bottom: 0.45rem;
-    }
+    .list-tight li { margin-bottom: 0.45rem; }
 
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
+      gap: 1.25rem;
+      align-items: start;
     }
 
-    .note {
-      font-size: 0.9rem;
-      color: #4b5563;
-    }
+    .note { font-size: 0.95rem; color: #4b5563; }
 
     .ref-box {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: #6b7280;
-      margin-top: 0.75rem;
+      margin-top: 0.85rem;
+      min-height: 1.2em;
+    }
+
+    .section-title {
+      margin-top: 0.2rem;
+      margin-bottom: 0.75rem;
     }
   </style>
 </head>
 
 <body>
 
-<!-- =========================
-   Sticky Trust Bar
-========================= -->
 <header class="trust-bar">
   <div class="trust-left">
     <img src="../assets/logo/tinyteam-square.png" alt="TinyTeam" class="tiny-logo" />
@@ -84,143 +79,162 @@
   </div>
 </header>
 
-<!-- =========================
-   Product Content
-========================= -->
 <section class="band band-white">
   <div class="content product-wrap">
 
-    <!-- Hero -->
+    <!-- HERO -->
     <div class="product-hero">
       <div>
         <span class="badge">GEN-02</span>
-        <h1>Community & Clan Digital Library</h1>
-        <p>
-          A structured digital archive for large families, clans,
-          and communities — designed to grow across generations.
+        <h1 class="section-title">Community & Clan Digital Library</h1>
+
+        <p class="note">
+          A structured digital archive for large families, clans, communities, churches, and organizations —
+          designed to grow across generations with <strong>forever access</strong>.
         </p>
 
         <div class="price-tag">$79 USD</div>
 
         <div class="cta-group">
           <a class="btn primary" href="../payments/qr.html">Pay via QR</a>
-          <a class="btn secondary" href="../help/index.html">Read the Help Guide</a>
+          <a class="btn secondary" href="../submit/index.html">Guided Submission</a>
+          <a class="btn ghost" href="../help/index.html">Help Guide</a>
         </div>
 
-        <div class="ref-box" id="refDisplay"></div>
+        <div class="ref-box" id="refDisplay" aria-live="polite"></div>
       </div>
 
-      <div>
-        <div class="soft-box">
-          <h3>Best For</h3>
-          <ul class="list-tight">
-            <li>Large clans with multiple family branches</li>
-            <li>Barangays, villages, and communities</li>
-            <li>Churches, fellowships, and organizations</li>
-            <li>Groups preserving shared history</li>
-          </ul>
-        </div>
+      <!-- BEST FOR -->
+      <div class="soft-box">
+        <h2>Best For</h2>
+        <ul class="list-tight">
+          <li>Large clans with multiple family branches</li>
+          <li>Communities with groups or units</li>
+          <li>Churches, fellowships, and organizations</li>
+          <li>Groups preserving shared history</li>
+        </ul>
+        <p class="note" style="margin-top:0.75rem;">
+          GEN-02 is built for scale — clear sections, consistent naming, and room to grow.
+        </p>
       </div>
     </div>
 
-    <!-- What You Get -->
+    <!-- WHAT YOU GET -->
     <div class="soft-box">
       <h2>What You Get</h2>
+
       <div class="grid-2">
         <ul class="list-tight">
-          <li>Multiple family or group branches</li>
-          <li>Clear separation per family or unit</li>
-          <li>Individual legacy pages per member</li>
-          <li>Support for complex relationships</li>
+          <li>Multiple branches, families, or groups inside one archive</li>
+          <li>Clear separation per branch or unit (easy to navigate)</li>
+          <li>Legacy pages per member (names, photos, stories)</li>
+          <li>Support for complex relationships and sensitive setups</li>
         </ul>
+
         <ul class="list-tight">
-          <li>Photos, stories, and milestones</li>
-          <li>Expandable structure for future growth</li>
-          <li>GitHub-hosted digital archive</li>
-          <li>Manual review & careful preparation</li>
+          <li>Memorial notes (“In Loving Memory”) by request</li>
+          <li>Expandable structure for future generations</li>
+          <li>GitHub-hosted digital archive for long-term access</li>
+          <li>Manual review and careful preparation (human-handled)</li>
         </ul>
       </div>
+
+      <p class="note" style="margin-top:0.75rem;">
+        This is designed to be understandable for all generations — tech or non-tech.
+      </p>
     </div>
 
-    <!-- Structure Explanation -->
+    <!-- STRUCTURE -->
     <div class="soft-box">
       <h2>How GEN-02 Is Structured</h2>
-      <p>
-        GEN-02 organizes history by groups or branches.
-        Each family, clan, or unit has its own section,
+      <p class="note">
+        GEN-02 organizes history by groups or branches. Each family, clan branch, or unit has its own section,
         while remaining part of one unified archive.
       </p>
       <p class="note">
-        This allows future families or members to be added
-        without breaking the original structure.
+        This makes it easy to add new members later without breaking the original structure.
       </p>
     </div>
 
-    <!-- Output Formats -->
+    <!-- OUTPUT FORMATS -->
     <div class="soft-box">
       <h2>Preferred Output Formats</h2>
       <ul class="list-tight">
-        <li>A4 or A3 registry-style layout</li>
-        <li>Volume or chapter-based book format</li>
-        <li>Expandable digital structure</li>
+        <li><strong>A4</strong> or <strong>A3</strong> registry-style layout (easy reference)</li>
+        <li><strong>Book Format</strong> volume or chapter-based structure (best for very large groups)</li>
+        <li>Expandable digital structure for ongoing updates</li>
       </ul>
       <p class="note">
-        GEN-02 is recommended for A3 or Book formats due to scale.
+        Due to scale, GEN-02 is commonly delivered in <strong>A3</strong> or <strong>Book</strong> format.
       </p>
     </div>
 
-    <!-- Delivery -->
+    <!-- DELIVERY -->
     <div class="soft-box">
       <h2>How Delivery Works</h2>
       <ol class="list-tight">
         <li>Complete payment via QR</li>
         <li>Email your receipt to <strong>smallsteps@tinyteamstudio.online</strong></li>
-        <li>Include your group or community name</li>
-        <li>We carefully prepare the digital archive</li>
+        <li>Include your group name + product code <strong>GEN-02</strong> + any notes</li>
+        <li>We prepare the archive manually with care</li>
         <li>Delivery instructions or files are sent via email</li>
       </ol>
       <p class="note">
-        This is a human-handled process to ensure accuracy and respect.
+        This is a human-handled process to ensure accuracy, respect, and long-term preservation.
       </p>
+
+      <div class="cta-group" style="margin-top:1rem;">
+        <a class="btn secondary" href="../payments/thank-you.html">View Next Steps</a>
+      </div>
     </div>
 
-    <!-- Heirloom -->
+    <!-- LIVING UPDATES (A2) -->
+    <div class="soft-box">
+      <h2>Living Updates</h2>
+      <p class="note">
+        Communities and groups grow over time. You may request updates anytime —
+        add new members, correct details, or include memorial notes.
+      </p>
+      <div class="cta-group">
+        <a class="btn secondary" href="../updates/index.html">Living Updates</a>
+      </div>
+    </div>
+
+    <!-- HEIRLOOM -->
     <div class="soft-box">
       <h2>A Living Community Archive</h2>
-      <p>
-        GEN-02 is designed as a long-term historical record.
-        Even as leaders change or generations pass,
-        the archive remains accessible and meaningful.
+      <p class="note">
+        GEN-02 is designed as a long-term historical record. Even as leaders change or generations pass,
+        the archive remains accessible, organized, and meaningful.
       </p>
     </div>
 
-    <!-- Actions -->
+    <!-- FINAL ACTIONS -->
     <div class="center">
-      <a class="btn primary" href="../payments/qr.html">Proceed to Payment</a>
-      <a class="btn ghost" href="../index.html">Back to Library Overview</a>
+      <div class="cta-group">
+        <a class="btn primary" href="../payments/qr.html">Proceed to Payment</a>
+        <a class="btn ghost" href="../index.html">Back to Library Overview</a>
+      </div>
     </div>
 
   </div>
 </section>
 
-<!-- =========================
-   Footer
-========================= -->
 <footer>
   <p>
-    <img src="../assets/logo/tinyteam-square.png" class="tiny-icon" />
+    <img src="../assets/logo/tinyteam-square.png" class="tiny-icon" alt="" />
     TinyTeam Digital Library ·
-    <img src="../assets/logo/buildframe-square.png" class="tiny-icon" />
+    <img src="../assets/logo/buildframe-square.png" class="tiny-icon" alt="" />
     Powered by BuildFrame Digital System ·
     <a href="../help/index.html">Help</a>
   </p>
 </footer>
 
-<!-- =========================
-   Reseller Tracking (Passive)
-========================= -->
 <script>
   (function () {
+    const el = document.getElementById('refDisplay');
+    if (!el) return;
+
     const params = new URLSearchParams(window.location.search);
     const ref = params.get('ref');
 
@@ -230,8 +244,9 @@
 
     const storedRef = localStorage.getItem('ttgl_ref');
     if (storedRef) {
-      document.getElementById('refDisplay').textContent =
-        'Referral code applied: ' + storedRef;
+      el.textContent = 'Referral code applied: ' + storedRef;
+    } else {
+      el.textContent = '';
     }
   })();
 </script>
