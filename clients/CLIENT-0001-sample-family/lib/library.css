@@ -1,1 +1,144 @@
+/* =====================================
+   TinyTeam Digital Library (Local Styles)
+   Scoped to /lib only
+   ===================================== */
+
+/* Wrapper */
+.library-wrap {
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* Hero layout */
+.library-hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .library-hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Info card */
+.library-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+/* Controls */
+.library-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0 1.5rem;
+  flex-wrap: wrap;
+}
+
+.library-search {
+  flex: 1;
+  min-width: 220px;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+}
+
+.library-count {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* People grid */
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+/* Person card */
+.person-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 1.1rem 1.2rem;
+}
+
+.person-name {
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+
+.person-meta {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.person-notes {
+  font-size: 0.85rem;
+  margin-top: 0.4rem;
+  color: #374151;
+}
+
+/* Memorial grid */
+.memorial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Memorial card */
+.memorial-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.memorial-title {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.memorial-name {
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.memorial-message {
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.memorial-photo {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 0.8rem 0;
+}
+
+/* Print-friendly */
+@media print {
+  .trust-bar,
+  .cta-group,
+  .library-search {
+    display: none !important;
+  }
+
+  .person-card,
+  .memorial-card {
+    page-break-inside: avoid;
+  }
+}
 
