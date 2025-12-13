@@ -9,431 +9,288 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="styles.css" />
-
-    <!-- Page-only polish (safe to keep here) -->
-    <style>
-      /* Page background */
-      body {
-        background: radial-gradient(
-          circle at top,
-          rgba(209, 250, 229, 0.9),
-          rgba(233, 213, 255, 0.65) 45%,
-          rgba(250, 250, 250, 1) 100%
-        );
-      }
-
-      /* =========================================
-         TOP TRUST BAR (logo left, links right)
-         ========================================= */
-      .tt-topbar {
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        background: rgba(255, 255, 255, 0.72);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(229, 231, 235, 0.9);
-      }
-
-      .tt-topbar-inner {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 10px 16px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-
-      .tt-topbar-brand {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        min-width: 220px;
-      }
-
-      .tt-topbar-logo {
-        width: 20px;
-        height: 20px;
-        object-fit: contain;
-        border-radius: 4px;
-      }
-
-      .tt-topbar-title {
-        display: grid;
-        gap: 1px;
-      }
-
-      .tt-topbar-title strong {
-        font-size: 13px;
-        letter-spacing: -0.01em;
-        color: rgba(17, 24, 39, 0.92);
-      }
-
-      .tt-topbar-title span {
-        font-size: 12px;
-        color: rgba(55, 65, 81, 0.72);
-      }
-
-      .tt-topbar-links {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        flex-wrap: wrap;
-      }
-
-      .tt-topbar-links a {
-        font-size: 12px;
-        font-weight: 800;
-        text-decoration: none;
-        color: rgba(15, 118, 110, 0.95);
-        border-bottom: 2px solid transparent;
-        padding-bottom: 2px;
-      }
-
-      .tt-topbar-links a:hover {
-        border-bottom-color: rgba(15, 118, 110, 0.35);
-      }
-
-      /* =========================================
-         WRAPPER + SECTION CARDS (alternate feel)
-         ========================================= */
-      .tt-wrap {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 18px 16px 70px;
-      }
-
-      .tt-card {
-        margin-top: 16px;
-        border-radius: 18px;
-        padding: 22px 18px;
-        border: 1px solid rgba(229, 231, 235, 0.9);
-        box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
-      }
-
-      /* Alternate backgrounds: “hero-like” then white then hero-like... */
-      .tt-card.soft {
-        background: rgba(255, 255, 255, 0.72);
-      }
-
-      .tt-card.white {
-        background: rgba(255, 255, 255, 0.92);
-      }
-
-      /* =========================================
-         BALANCED SPLIT SECTIONS (text + image)
-         - images flexible
-         - text stays readable and balanced
-         ========================================= */
-      .tt-split {
-        display: grid;
-        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-        gap: 22px;
-        align-items: center;
-      }
-
-      .tt-split.reverse {
-        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-      }
-
-      .tt-copy h1 {
-        margin: 0;
-        font-size: 28px;
-        letter-spacing: -0.02em;
-        line-height: 1.1;
-      }
-
-      .tt-copy h2 {
-        margin: 0;
-        font-size: 18px;
-        letter-spacing: -0.01em;
-      }
-
-      .tt-copy p {
-        margin: 10px 0 0;
-        font-size: 14px;
-        line-height: 1.6;
-        color: rgba(55, 65, 81, 0.86);
-        max-width: 64ch;
-      }
-
-      .tt-copy ul {
-        margin: 10px 0 0;
-        padding-left: 18px;
-      }
-
-      .tt-copy li {
-        margin: 0 0 8px;
-        font-size: 14px;
-        line-height: 1.55;
-        color: rgba(55, 65, 81, 0.86);
-      }
-
-      .tt-media {
-        display: flex;
-        justify-content: center;
-      }
-
-      .tt-media img {
-        width: 100%;
-        height: auto;
-        max-width: 460px;
-        border-radius: 14px;
-        border: 1px solid rgba(229, 231, 235, 0.95);
-        box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
-      }
-
-      /* Hero links (keep calm) */
-      .tt-hero-links {
-        margin-top: 14px;
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-
-      .tt-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        border-radius: 999px;
-        padding: 10px 14px;
-        text-decoration: none;
-        font-size: 12px;
-        font-weight: 900;
-        border: 1px solid rgba(15, 118, 110, 0.25);
-        background: rgba(15, 118, 110, 0.08);
-        color: rgba(15, 118, 110, 0.95);
-      }
-
-      .tt-pill.alt {
-        border: 1px solid rgba(99, 102, 241, 0.25);
-        background: rgba(99, 102, 241, 0.08);
-        color: rgba(67, 56, 202, 1);
-      }
-
-      /* CTA card */
-      .tt-cta h2 {
-        margin: 0;
-        font-size: 18px;
-      }
-
-      .tt-cta p {
-        margin: 10px 0 0;
-        font-size: 14px;
-        line-height: 1.6;
-        color: rgba(55, 65, 81, 0.86);
-        max-width: 72ch;
-      }
-
-      .tt-btn {
-        margin-top: 14px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 12px 18px;
-        border-radius: 12px;
-        font-size: 13px;
-        font-weight: 900;
-        text-decoration: none;
-        border: 1px solid rgba(15, 118, 110, 0.25);
-        background: rgba(15, 118, 110, 0.10);
-        color: rgba(15, 118, 110, 0.95);
-      }
-
-      .tt-btn:hover {
-        filter: brightness(0.98);
-      }
-
-      /* Mobile */
-      @media (max-width: 860px) {
-        .tt-split,
-        .tt-split.reverse {
-          grid-template-columns: 1fr;
-        }
-
-        .tt-copy h1 {
-          font-size: 24px;
-        }
-
-        .tt-media img {
-          max-width: 640px;
-        }
-      }
-    </style>
   </head>
 
   <body>
     <!-- TOP TRUST BAR -->
     <div class="tt-topbar">
       <div class="tt-topbar-inner">
-        <div class="tt-topbar-brand">
-          <!-- ✅ Keep this logo SMALL -->
-          <!-- You can swap to SVG later: assets/logo/tinyteam-logo.svg -->
+        <div class="tt-topbar-left">
           <img
             class="tt-topbar-logo"
             src="assets/logo/tinyteam-logo.jpeg"
-            alt="TinyTeam logo"
+            alt="TinyTeam Digital Library"
           />
           <div class="tt-topbar-title">
-            <strong>TinyTeam Digital Library</strong>
-            <span>A living family and community archive</span>
+            <div class="tt-topbar-name">TinyTeam Digital Library</div>
+            <div class="tt-topbar-sub">A living family & community archive</div>
           </div>
         </div>
 
-        <nav class="tt-topbar-links" aria-label="Top links">
-          <!-- Replace # with your Facebook page link later -->
-          <a href="#" target="_blank" rel="noopener">Facebook</a>
-          <a href="mailto:smallsteps@tinyteamstudio.online"
+        <div class="tt-topbar-right">
+          <!-- Replace # with your FB page later -->
+          <a class="tt-topbar-link" href="#" target="_blank" rel="noopener">Facebook</a>
+          <a class="tt-topbar-link" href="mailto:smallsteps@tinyteamstudio.online"
             >smallsteps@tinyteamstudio.online</a
           >
-        </nav>
+          <a class="tt-topbar-link" href="help/">Help</a>
+        </div>
       </div>
     </div>
 
-    <main class="tt-wrap">
-      <!-- 1) HERO (soft) -->
-      <section class="tt-card soft">
-        <div class="tt-split">
-          <div class="tt-copy">
-            <h1>A Living Family Heirloom — Built Today, Carried Forward Forever</h1>
-            <p>
-              TinyTeam helps families, clans, communities, and organizations keep a
-              clear record of people, relationships, and memories — in a way that
-              can be passed on to future generations.
-            </p>
-            <p>
-              Even if printed copies are lost or damaged, your records stay safe
-              and accessible anytime, anywhere.
-            </p>
+    <main class="tt-page">
+      <!-- BAND 1 (Hero-like) -->
+      <section class="tt-band tt-band-hero">
+        <div class="tt-card">
+          <div class="tt-split">
+            <div class="tt-text">
+              <h1>A Living Family Heirloom — Built Today, Carried Forward Forever</h1>
+              <p>
+                TinyTeam helps families, clans, communities, and organizations preserve people,
+                relationships, and memories in one calm, structured place — designed to last for
+                generations.
+              </p>
+              <p>
+                Even if printed copies get damaged or lost, your family records and photos remain
+                safe and accessible anytime, anywhere — like a legacy that never disappears.
+              </p>
 
-            <div class="tt-hero-links">
-              <a class="tt-pill alt" href="products/GEN-01.html">Explore Templates →</a>
-              <a class="tt-pill" href="help/">Help</a>
+              <div class="tt-actions">
+                <a class="tt-btn" href="products/GEN-01.html">Explore GEN Templates →</a>
+                <a class="tt-btn tt-btn-soft" href="#packages">View Packages</a>
+              </div>
+
+              <div class="tt-note">
+                Non-techy family members can follow simple steps. Techy family members can help update it.
+                It’s built for mixed generations.
+              </div>
+            </div>
+
+            <div class="tt-media">
+              <img
+                src="assets/bg/heritage-book.jpg"
+                alt="A heritage-style family record presented as a book of memories"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BAND 2 (White) -->
+      <section class="tt-band tt-band-white">
+        <div class="tt-card">
+          <div class="tt-split tt-reverse">
+            <div class="tt-media">
+              <img
+                src="assets/bg/family-hierarchy.jpg"
+                alt="Families and communities organized with respectful relationship structure"
+              />
+            </div>
+
+            <div class="tt-text">
+              <h2>What Is TinyTeam Digital Library?</h2>
+              <p>
+                Think of TinyTeam as a “living archive” that your family can pass down.
+                It keeps your family tree, genealogy, and family details clear and understandable —
+                even with complicated family setups.
+              </p>
+              <p>
+                It’s not just a file or a chart. It’s an organized record that can grow forever —
+                an heirloom for future generations to trace their roots.
+              </p>
+
+              <ul class="tt-list">
+                <li>Supports blended families, adoption, and multiple parents</li>
+                <li>Designed to be readable (not “software-looking”)</li>
+                <li>Easy to start small and expand later</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BAND 3 (Hero-like) -->
+      <section class="tt-band tt-band-hero">
+        <div class="tt-card">
+          <div class="tt-split">
+            <div class="tt-text">
+              <h2>From Living Records to Lasting Memorabilia</h2>
+              <p>
+                What begins as simple names and relationships can become something meaningful:
+                a clean family hierarchy, a clan record, a community directory, or a printed book
+                that future generations can understand and keep.
+              </p>
+              <p>
+                Keep it digital for “forever access” — or print it anytime (A5, A4, A3, book-ready).
+                Your library stays ready either way.
+              </p>
+            </div>
+
+            <div class="tt-media">
+              <img
+                src="assets/bg/legacy-pages.jpg"
+                alt="Legacy pages with photos and memories that grow over time"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BAND 4 (White) -->
+      <section class="tt-band tt-band-white">
+        <div class="tt-card">
+          <div class="tt-split tt-reverse">
+            <div class="tt-media">
+              <img
+                src="assets/bg/community-groups.jpg"
+                alt="Families, clans, alumni groups, and organizations preserved as a living record"
+              />
+            </div>
+
+            <div class="tt-text">
+              <h2>Who This Is For</h2>
+              <ul class="tt-list">
+                <li>Families and extended clans</li>
+                <li>Communities and organizations</li>
+                <li>Alumni groups and associations</li>
+                <li>Anyone preserving people and relationships over time</li>
+              </ul>
+
+              <p>
+                If your family has a “mixed setup” — don’t worry.
+                TinyTeam is built to respect real-life relationships and keep everything readable.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BAND 5 (Hero-like) -->
+      <section class="tt-band tt-band-hero">
+        <div class="tt-card">
+          <div class="tt-split">
+            <div class="tt-text">
+              <h2>Inside Your Digital Library</h2>
+              <ul class="tt-list">
+                <li>People and relationship records (easy to read)</li>
+                <li>Family / clan / group structures</li>
+                <li>Legacy pages (memories, aspirations, tributes, photos)</li>
+                <li>Print-ready output formats (A5, A4, A3, book)</li>
+                <li>Return anytime — update anytime</li>
+              </ul>
+
+              <p>
+                This is built for “infinite years” — so future generations can trace family roots
+                way back and still understand the story.
+              </p>
+            </div>
+
+            <div class="tt-media">
+              <img
+                src="assets/bg/library-records.jpg"
+                alt="A clean, organized library of people and relationship records"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PACKAGES + PRICING (White) -->
+      <section class="tt-band tt-band-white" id="packages">
+        <div class="tt-card tt-center">
+          <h2>Packages & Pricing</h2>
+          <p class="tt-lead">
+            All packages include the same experience and support. Only capacity changes.
+            Currency shown in USD for global clarity.
+          </p>
+
+          <div class="tt-grid-3">
+            <div class="tt-price-card">
+              <span class="tt-badge">🌱 Starter</span>
+              <h3>For families starting their archive</h3>
+              <div class="tt-price">$29</div>
+              <ul class="tt-mini">
+                <li>Up to 1,500 people records</li>
+                <li>Basic structure + guidance</li>
+                <li>Print-ready formatting support</li>
+                <li>Email support for setup questions</li>
+              </ul>
+              <div class="tt-upsell">
+                Optional upsell: add Legacy Pages anytime.
+              </div>
+            </div>
+
+            <div class="tt-price-card">
+              <span class="tt-badge">🌿 Growth</span>
+              <h3>For clans & growing communities</h3>
+              <div class="tt-price">$59</div>
+              <ul class="tt-mini">
+                <li>5,000–25,000 people records</li>
+                <li>Better for large clans</li>
+                <li>Print-ready (A5/A4/A3/book)</li>
+                <li>Priority email support</li>
+              </ul>
+              <div class="tt-upsell">
+                Best choice if you plan to expand over time.
+              </div>
+            </div>
+
+            <div class="tt-price-card">
+              <span class="tt-badge">🌳 Enterprise</span>
+              <h3>For organizations & institutions</h3>
+              <div class="tt-price">$99</div>
+              <ul class="tt-mini">
+                <li>25,000+ people records</li>
+                <li>Custom structure guidance</li>
+                <li>Print + long-term archival planning</li>
+                <li>Dedicated support thread via email</li>
+              </ul>
+              <div class="tt-upsell">
+                Ideal for alumni networks and big associations.
+              </div>
             </div>
           </div>
 
-          <div class="tt-media">
-            <img
-              src="assets/bg/heritage-book.jpg"
-              alt="A heritage-style family record presented as a book of memories"
-            />
+          <div class="tt-divider"></div>
+
+          <div class="tt-pay-row">
+            <div>
+              <strong>Ready to pay?</strong>
+              <div style="font-size: 12px; color: rgba(55,65,81,0.75); margin-top: 4px;">
+                You’ll pay via QR, then send your receipt so we can verify and deliver your files.
+              </div>
+            </div>
+
+            <div class="tt-pay-actions">
+              <a class="tt-btn tt-btn-soft" href="payments/qr.html">Pay via QR →</a>
+              <a class="tt-btn" href="payments/thank-you.html">Go to Thank You →</a>
+            </div>
+          </div>
+
+          <div class="tt-note" style="margin-top: 12px;">
+            After payment, email your receipt to <strong>smallsteps@tinyteamstudio.online</strong>.
+            We verify and respond within <strong>24–48 hours</strong>.
           </div>
         </div>
       </section>
 
-      <!-- 2) WHAT IS IT (white) -->
-      <section class="tt-card white">
-        <div class="tt-split reverse">
-          <div class="tt-media">
-            <img
-              src="assets/bg/family-hierarchy.jpg"
-              alt="Families and communities organized with respectful relationship structure"
-            />
-          </div>
+      <!-- FINAL CTA (Hero-like) -->
+      <section class="tt-band tt-band-hero">
+        <div class="tt-card tt-center">
+          <h2>Start Your Legacy Today</h2>
+          <p class="tt-lead">
+            Start small. Keep it safe forever. Pass it forward like an heirloom — for generations to come.
+          </p>
 
-          <div class="tt-copy">
-            <h2>What Is TinyTeam Digital Library?</h2>
-            <p>
-              Think of TinyTeam like a calm, organized family archive — where names,
-              relationships, and life details can be recorded gently and clearly.
-            </p>
-            <p>
-              It’s made for mixed generations: elders who prefer simple instructions,
-              and younger family members who can help keep the library updated over time.
-            </p>
+          <div class="tt-actions" style="justify-content: center;">
+            <a class="tt-btn" href="products/GEN-01.html">Explore GEN-01 →</a>
+            <a class="tt-btn tt-btn-soft" href="payments/qr.html">Pay via QR →</a>
           </div>
         </div>
-      </section>
-
-      <!-- 3) MEMORABILIA (soft) -->
-      <section class="tt-card soft">
-        <div class="tt-split">
-          <div class="tt-copy">
-            <h2>From Living Records to Lasting Memorabilia</h2>
-            <p>
-              What starts as simple family information can grow into something meaningful:
-              a clean hierarchy, a clan record, a community directory, or a printed book
-              that future generations can understand and keep.
-            </p>
-            <p>
-              You can keep it digital, print it now, or print it later — your library stays ready.
-            </p>
-          </div>
-
-          <div class="tt-media">
-            <img
-              src="assets/bg/legacy-pages.jpg"
-              alt="Legacy pages with photos and memories that grow over time"
-            />
-          </div>
-        </div>
-      </section>
-
-      <!-- 4) WHO IT'S FOR (white) -->
-      <section class="tt-card white">
-        <div class="tt-split reverse">
-          <div class="tt-media">
-            <img
-              src="assets/bg/community-groups.jpg"
-              alt="Families, clans, alumni groups, and organizations preserved as a living record"
-            />
-          </div>
-
-          <div class="tt-copy">
-            <h2>Who This Is For</h2>
-            <ul>
-              <li>Families and extended clans</li>
-              <li>Communities and organizations</li>
-              <li>Alumni groups and associations</li>
-              <li>Anyone preserving people and connections over time</li>
-            </ul>
-            <p>
-              If your family setup is complicated (blended families, adoption, multiple parents),
-              TinyTeam is designed to respect real life and keep things understandable.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- 5) INSIDE THE LIBRARY (soft) -->
-      <section class="tt-card soft">
-        <div class="tt-split">
-          <div class="tt-copy">
-            <h2>Inside Your Digital Library</h2>
-            <ul>
-              <li>People and relationship records (easy to read)</li>
-              <li>Family, group, or organization structures</li>
-              <li>Optional Legacy Pages (memories, aspirations, tributes, photos)</li>
-              <li>Print-ready outputs (A5, A4, A3, book formats)</li>
-              <li>Cloud-style access you can return to anytime</li>
-            </ul>
-            <p>
-              Your library is designed to grow — you can start small, then expand over time.
-            </p>
-          </div>
-
-          <div class="tt-media">
-            <img
-              src="assets/bg/library-records.jpg"
-              alt="A clean, organized library of people and relationship records"
-            />
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA (white) -->
-      <section class="tt-card white tt-cta">
-        <h2>Begin Your Digital Library</h2>
-        <p>
-          Start with one template today — then grow your library as your family,
-          clan, or community continues forward.
-        </p>
-        <a class="tt-btn" href="products/GEN-01.html">Explore Templates</a>
       </section>
     </main>
 
-    <!-- FOOTER (uses your existing tt-footer CSS in styles.css) -->
+    <!-- FOOTER WITH TINY LOGOS -->
     <footer class="tt-footer">
       <div class="tt-footer-inner">
         <div class="tt-footer-brand">
