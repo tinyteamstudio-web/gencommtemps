@@ -8,16 +8,13 @@
   <link rel="stylesheet" href="../styles.css" />
 
   <style>
-    /* Page-specific, light additions only */
-    .thank-wrap {
-      max-width: 760px;
-      margin: auto;
-    }
+    /* Page-specific (light additions only; avoid overriding global styles) */
+    .thank-wrap { max-width: 780px; margin: auto; }
 
     .checkmark {
       font-size: 3rem;
-      color: #2563eb;
-      margin-bottom: 1rem;
+      line-height: 1;
+      margin-bottom: 0.75rem;
     }
 
     .soft-box {
@@ -25,36 +22,32 @@
       border: 1px solid #e5e7eb;
       border-radius: 16px;
       padding: 1.5rem;
-      margin: 2rem 0;
+      margin: 1.6rem 0;
     }
 
-    .steps li {
-      margin-bottom: 0.6rem;
-    }
+    .steps li { margin-bottom: 0.6rem; }
 
     .video-placeholder {
-      margin-top: 2rem;
-      padding: 2rem;
+      margin-top: 1rem;
+      padding: 1.6rem;
       border: 2px dashed #d1d5db;
       border-radius: 12px;
       color: #6b7280;
       text-align: center;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+      background: #ffffff;
     }
 
-    .reassure {
-      font-size: 0.95rem;
-      color: #374151;
-      margin-top: 1.5rem;
-    }
+    .reassure { font-size: 0.95rem; color: #374151; margin-top: 1rem; }
+
+    .mini-note { font-size: 0.95rem; color: #4b5563; }
+
+    .center-block { text-align: center; }
   </style>
 </head>
 
 <body>
 
-<!-- =========================
-   Sticky Trust Bar
-========================= -->
 <header class="trust-bar">
   <div class="trust-left">
     <img src="../assets/logo/tinyteam-square.png" alt="TinyTeam" class="tiny-logo" />
@@ -67,39 +60,94 @@
   </div>
 </header>
 
-<!-- =========================
-   Thank You Content
-========================= -->
 <section class="band band-white">
   <div class="content thank-wrap">
 
-    <div class="center">
-      <div class="checkmark">✔</div>
+    <!-- Header -->
+    <div class="center-block">
+      <div class="checkmark" aria-hidden="true">✔</div>
       <h1>Thank You</h1>
-      <p>
-        Your payment has been received or is being verified.
-        We truly appreciate your trust in preserving your family or community legacy.
+      <p class="mini-note">
+        Your payment has been received (or is being verified). Thank you for trusting TinyTeam to help preserve
+        your family or community legacy.
       </p>
     </div>
 
-    <!-- What Happens Next -->
+    <!-- Next Steps -->
     <div class="soft-box">
       <h2>What Happens Next</h2>
       <ol class="steps">
-        <li>We manually verify your payment</li>
-        <li>We review your selected product and details</li>
-        <li>Your digital library structure is carefully prepared</li>
-        <li>You will receive instructions or files via email</li>
+        <li><strong>Email your payment receipt</strong> to <strong>smallsteps@tinyteamstudio.online</strong></li>
+        <li>Include your <strong>name</strong> and the product code (<strong>GEN-01</strong> or <strong>GEN-02</strong>)</li>
+        <li>If you have notes or special family setup, you may include them (optional)</li>
+        <li>We manually verify and carefully prepare your digital library</li>
+        <li>We send instructions or deliverables back via email</li>
       </ol>
+
       <p class="reassure">
-        This is a human-handled process — not automated.
-        Your data is treated with care, respect, and long-term purpose.
+        This is a human-handled process — not automated. Your information is treated with care, respect, and long-term purpose.
+      </p>
+
+      <div class="cta-group" style="margin-top:1rem;">
+        <a class="btn primary" href="../submit/index.html">Go to Guided Submission</a>
+        <a class="btn ghost" href="../help/index.html">Read the Help Guide</a>
+      </div>
+    </div>
+
+    <!-- Living Updates (A2) -->
+    <div class="soft-box">
+      <h2>Living Updates</h2>
+      <p class="mini-note">
+        Your TinyTeam Digital Library is designed to grow with your family or community.
+        You may request updates anytime — add new members, correct details, or include memorial notes in the future.
+      </p>
+      <div class="cta-group">
+        <a class="btn secondary" href="../updates/index.html">Living Updates</a>
+      </div>
+    </div>
+
+    <!-- Forever / Heirloom -->
+    <div class="soft-box">
+      <h2>This Is a Living Heirloom</h2>
+      <p class="mini-note">
+        Your TinyTeam Digital Library is designed for long-term access. Even if hard copies are lost, devices change,
+        or generations pass, your family history can remain organized and reachable — a digital heirloom for the future.
       </p>
     </div>
 
-    <!-- Forever Reassurance -->
+    <!-- Video Placeholder -->
     <div class="soft-box">
-      <h2>This Is a Living Heirloom</h2>
-      <p>
-        Your TinyTeam Digital Library is designed for long-term access.
-        Even if phy
+      <h2>Quick Tutorial (Optional)</h2>
+      <p class="mini-note">
+        We will add a short video guide here soon. For now, you can follow the written steps above and use the Guided Submission page.
+      </p>
+
+      <div class="video-placeholder">
+        Video placeholder — tutorial will be added here later
+      </div>
+    </div>
+
+    <!-- Final Actions -->
+    <div class="center" style="margin-top:1.2rem;">
+      <div class="cta-group">
+        <a class="btn ghost" href="../index.html">Back to Home</a>
+        <a class="btn secondary" href="../products/GEN-01.html">View GEN-01</a>
+        <a class="btn secondary" href="../products/GEN-02.html">View GEN-02</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>
+    <img src="../assets/logo/tinyteam-square.png" class="tiny-icon" alt="" />
+    TinyTeam Digital Library ·
+    <img src="../assets/logo/buildframe-square.png" class="tiny-icon" alt="" />
+    Powered by BuildFrame Digital System ·
+    <a href="../help/index.html">Help</a>
+  </p>
+</footer>
+
+</body>
+</html>
