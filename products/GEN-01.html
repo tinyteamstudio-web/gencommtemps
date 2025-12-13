@@ -8,22 +8,21 @@
   <link rel="stylesheet" href="../styles.css" />
 
   <style>
-    /* Page-specific, minimal */
-    .product-wrap {
-      max-width: 980px;
-      margin: auto;
-    }
-
+    /* Page-specific (minimal + non-overlapping) */
+    .product-wrap { max-width: 980px; margin: auto; }
     .product-hero {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2.5rem;
-      align-items: center;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.25rem;
+      align-items: start;
+    }
+    @media (max-width: 860px) {
+      .product-hero { grid-template-columns: 1fr; }
     }
 
     .badge {
       display: inline-block;
-      padding: 0.25rem 0.6rem;
+      padding: 0.25rem 0.65rem;
       border-radius: 999px;
       background: #e5e7eb;
       font-size: 0.75rem;
@@ -31,26 +30,21 @@
       margin-bottom: 0.75rem;
     }
 
-    .price-tag {
-      font-size: 2.2rem;
-      margin: 0.5rem 0 1rem;
-    }
+    .price-tag { font-size: 2.2rem; margin: 0.5rem 0 0.75rem; }
 
     .soft-box {
       background: #f8fafc;
       border: 1px solid #e5e7eb;
       border-radius: 16px;
       padding: 1.5rem;
-      margin: 2rem 0;
+      margin: 1.6rem 0;
     }
 
-    .list-tight li {
-      margin-bottom: 0.45rem;
-    }
+    .list-tight li { margin-bottom: 0.45rem; }
 
     .sizes {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
       gap: 1rem;
       margin-top: 1rem;
     }
@@ -59,28 +53,28 @@
       border: 1px solid #e5e7eb;
       border-radius: 12px;
       padding: 1rem;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       background: #ffffff;
     }
 
-    .note {
-      font-size: 0.9rem;
-      color: #4b5563;
-    }
+    .note { font-size: 0.95rem; color: #4b5563; }
 
     .ref-box {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: #6b7280;
-      margin-top: 0.75rem;
+      margin-top: 0.85rem;
+      min-height: 1.2em;
+    }
+
+    .section-title {
+      margin-top: 0.2rem;
+      margin-bottom: 0.75rem;
     }
   </style>
 </head>
 
 <body>
 
-<!-- =========================
-   Sticky Trust Bar
-========================= -->
 <header class="trust-bar">
   <div class="trust-left">
     <img src="../assets/logo/tinyteam-square.png" alt="TinyTeam" class="tiny-logo" />
@@ -93,133 +87,146 @@
   </div>
 </header>
 
-<!-- =========================
-   Product Content
-========================= -->
 <section class="band band-white">
   <div class="content product-wrap">
 
-    <!-- Hero -->
+    <!-- HERO -->
     <div class="product-hero">
       <div>
         <span class="badge">GEN-01</span>
-        <h1>Family Digital Library</h1>
-        <p>
-          A calm, organized digital space for your family’s genealogy,
-          life stories, and memories — preserved with forever access.
+        <h1 class="section-title">Family Digital Library</h1>
+
+        <p class="note">
+          A calm, organized digital space for your family’s genealogy, life stories,
+          and memories — preserved with <strong>forever access</strong>.
         </p>
 
         <div class="price-tag">$39 USD</div>
 
         <div class="cta-group">
           <a class="btn primary" href="../payments/qr.html">Pay via QR</a>
-          <a class="btn secondary" href="../help/index.html">Read the Help Guide</a>
+          <a class="btn secondary" href="../submit/index.html">Guided Submission</a>
+          <a class="btn ghost" href="../help/index.html">Help Guide</a>
         </div>
 
-        <div class="ref-box" id="refDisplay"></div>
+        <div class="ref-box" id="refDisplay" aria-live="polite"></div>
       </div>
 
-      <div>
-        <div class="soft-box">
-          <h3>What You Get</h3>
-          <ul class="list-tight">
-            <li>Structured family hierarchy (simple or complex)</li>
-            <li>Individual legacy pages per family member</li>
-            <li>Support for blended families & adoption</li>
-            <li>Photos, stories, dates, and milestones</li>
-            <li>Forever access via GitHub-hosted library</li>
-            <li>Manual review & careful preparation</li>
-          </ul>
-        </div>
+      <!-- WHAT YOU GET -->
+      <div class="soft-box">
+        <h2>What You Get</h2>
+        <ul class="list-tight">
+          <li>Structured family hierarchy (simple or complex)</li>
+          <li>Legacy pages per family member (names, photos, stories)</li>
+          <li>Support for blended families, adoption, and sensitive setups</li>
+          <li>Memorial notes (“In Loving Memory”) by request</li>
+          <li>Forever access through a GitHub-hosted digital library</li>
+          <li>Manual review and careful preparation (human-handled)</li>
+        </ul>
+        <p class="note" style="margin-top:0.75rem;">
+          This is designed to be understandable for all generations — tech or non-tech.
+        </p>
       </div>
     </div>
 
-    <!-- Output Sizes -->
+    <!-- OUTPUT SIZES -->
     <div class="soft-box">
       <h2>Preferred Output Sizes</h2>
       <p class="note">
-        You may choose how your digital library is structured and exported.
+        Choose how your library is structured and exported. You can decide now or later.
       </p>
 
-      <div class="sizes">
-        <div class="size-card">
+      <div class="sizes" role="list">
+        <div class="size-card" role="listitem">
           <strong>A5</strong>
-          <p>Compact, personal keepsake style</p>
+          <p class="note">Compact keepsake style</p>
         </div>
-        <div class="size-card">
+        <div class="size-card" role="listitem">
           <strong>A4</strong>
-          <p>Standard document and sharing format</p>
+          <p class="note">Standard document and sharing format</p>
         </div>
-        <div class="size-card">
+        <div class="size-card" role="listitem">
           <strong>A3</strong>
-          <p>Recommended for large families</p>
+          <p class="note">Recommended for large families</p>
         </div>
-        <div class="size-card">
+        <div class="size-card" role="listitem">
           <strong>Book Format</strong>
-          <p>List or chapter-based structure</p>
+          <p class="note">Chapter / list structure for huge families</p>
         </div>
       </div>
 
       <p class="note" style="margin-top: 1rem;">
-        A3 and Book formats are ideal for very large families.
-        Future merging of multiple families is supported.
+        A3 and Book formats are ideal for very large families. Future merging of multiple branches is supported.
       </p>
     </div>
 
-    <!-- How Delivery Works -->
+    <!-- DELIVERY -->
     <div class="soft-box">
       <h2>How Delivery Works</h2>
       <ol class="list-tight">
         <li>Complete payment via QR</li>
         <li>Email your receipt to <strong>smallsteps@tinyteamstudio.online</strong></li>
-        <li>Include your name, product (GEN-01), and any notes</li>
-        <li>Your digital library is prepared manually</li>
+        <li>Include your name + product code <strong>GEN-01</strong> + any notes</li>
+        <li>We prepare your library manually with care</li>
         <li>Delivery instructions or files are sent via email</li>
       </ol>
 
       <p class="note">
-        This is a human-handled process.
-        Accuracy, respect, and long-term preservation matter.
+        This is a human-handled process. Accuracy, respect, and long-term preservation matter.
       </p>
+
+      <div class="cta-group" style="margin-top:1rem;">
+        <a class="btn secondary" href="../payments/thank-you.html">View Next Steps</a>
+      </div>
     </div>
 
-    <!-- Forever Reassurance -->
+    <!-- LIVING UPDATES (A2) -->
+    <div class="soft-box">
+      <h2>Living Updates</h2>
+      <p class="note">
+        Families grow over time. You may request updates to your digital library anytime —
+        add new members, correct details, or include memorial notes.
+      </p>
+      <div class="cta-group">
+        <a class="btn secondary" href="../updates/index.html">Living Updates</a>
+      </div>
+    </div>
+
+    <!-- HEIRLOOM -->
     <div class="soft-box">
       <h2>A Living Heirloom</h2>
-      <p>
-        GEN-01 is not just a file or chart.
-        It is a living digital heirloom — designed to remain accessible
+      <p class="note">
+        GEN-01 is not just a file or chart. It is a living digital heirloom — designed to remain accessible
         even when physical copies fade or generations pass.
       </p>
     </div>
 
-    <!-- Actions -->
+    <!-- FINAL ACTIONS -->
     <div class="center">
-      <a class="btn primary" href="../payments/qr.html">Proceed to Payment</a>
-      <a class="btn ghost" href="../index.html">Back to Library Overview</a>
+      <div class="cta-group">
+        <a class="btn primary" href="../payments/qr.html">Proceed to Payment</a>
+        <a class="btn ghost" href="../index.html">Back to Library Overview</a>
+      </div>
     </div>
 
   </div>
 </section>
 
-<!-- =========================
-   Footer
-========================= -->
 <footer>
   <p>
-    <img src="../assets/logo/tinyteam-square.png" class="tiny-icon" />
+    <img src="../assets/logo/tinyteam-square.png" class="tiny-icon" alt="" />
     TinyTeam Digital Library ·
-    <img src="../assets/logo/buildframe-square.png" class="tiny-icon" />
+    <img src="../assets/logo/buildframe-square.png" class="tiny-icon" alt="" />
     Powered by BuildFrame Digital System ·
     <a href="../help/index.html">Help</a>
   </p>
 </footer>
 
-<!-- =========================
-   Reseller Tracking (Passive)
-========================= -->
 <script>
   (function () {
+    const el = document.getElementById('refDisplay');
+    if (!el) return;
+
     const params = new URLSearchParams(window.location.search);
     const ref = params.get('ref');
 
@@ -229,11 +236,13 @@
 
     const storedRef = localStorage.getItem('ttgl_ref');
     if (storedRef) {
-      document.getElementById('refDisplay').textContent =
-        'Referral code applied: ' + storedRef;
+      el.textContent = 'Referral code applied: ' + storedRef;
+    } else {
+      el.textContent = '';
     }
   })();
 </script>
 
 </body>
 </html>
+
