@@ -3,453 +3,103 @@
 <head>
   <meta charset="UTF-8" />
   <title>Thank You · TinyTeam Digital Library</title>
-  <meta
-    name="description"
-    content="Thank you for your TinyTeam purchase. Follow the next steps to send your payment receipt and receive your digital library setup."
-  />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Thank you for your payment. Your TinyTeam Digital Library legacy is now in progress." />
   <link rel="stylesheet" href="../styles.css" />
 
   <style>
-    body {
-      background: radial-gradient(
-        circle at top,
-        rgba(209, 250, 229, 0.9),
-        rgba(233, 213, 255, 0.65) 45%,
-        rgba(250, 250, 250, 1) 100%
-      );
+    /* Page-specific, light additions only */
+    .thank-wrap {
+      max-width: 760px;
+      margin: auto;
     }
 
-    .ty-page {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 36px 16px 70px;
+    .checkmark {
+      font-size: 3rem;
+      color: #2563eb;
+      margin-bottom: 1rem;
     }
 
-    .crumbs {
-      font-size: 12px;
-      color: rgba(55, 65, 81, 0.8);
-      margin-bottom: 14px;
-    }
-    .crumbs a {
-      color: rgba(15, 118, 110, 0.95);
-      text-decoration: none;
-      font-weight: 800;
-    }
-    .crumbs a:hover {
-      text-decoration: underline;
+    .soft-box {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin: 2rem 0;
     }
 
-    .hero {
-      background: rgba(255, 255, 255, 0.75);
-      border: 1px solid rgba(229, 231, 235, 0.9);
-      border-radius: 18px;
-      padding: 22px 18px;
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
-    }
-    .hero h1 {
-      margin: 0;
-      font-size: 26px;
-      letter-spacing: -0.02em;
-    }
-    .hero p {
-      margin: 10px 0 0;
-      color: rgba(55, 65, 81, 0.88);
-      font-size: 14px;
-      line-height: 1.55;
-      max-width: 820px;
-    }
-
-    .nav-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 12px;
-    }
-    .link-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border-radius: 999px;
-      padding: 10px 14px;
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 900;
-      border: 1px solid rgba(99, 102, 241, 0.25);
-      background: rgba(99, 102, 241, 0.08);
-      color: rgba(67, 56, 202, 1);
-    }
-    .link-btn.alt {
-      border: 1px solid rgba(15, 118, 110, 0.25);
-      background: rgba(15, 118, 110, 0.08);
-      color: rgba(15, 118, 110, 0.95);
-    }
-
-    .grid {
-      margin-top: 18px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 16px;
-    }
-
-    .panel {
-      background: rgba(255, 255, 255, 0.78);
-      border: 1px solid rgba(229, 231, 235, 0.9);
-      border-radius: 18px;
-      padding: 18px 16px;
-      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
-    }
-
-    .panel h2 {
-      margin: 0 0 10px;
-      font-size: 14px;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      color: rgba(15, 118, 110, 0.95);
-    }
-
-    .note {
-      border-radius: 14px;
-      padding: 12px 14px;
-      border: 1px dashed rgba(148, 163, 184, 0.7);
-      background: rgba(255, 255, 255, 0.7);
-    }
-    .note strong {
-      display: block;
-      font-size: 13px;
-    }
-    .note p {
-      margin: 6px 0 0;
-      font-size: 13px;
-      color: rgba(55, 65, 81, 0.85);
-      line-height: 1.55;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border-radius: 999px;
-      padding: 8px 12px;
-      background: rgba(16, 185, 129, 0.10);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      color: rgba(5, 150, 105, 1);
-      font-weight: 950;
-      font-size: 12px;
-      width: fit-content;
-      margin-bottom: 10px;
-    }
-
-    .steps ol {
-      padding-left: 18px;
-      margin: 8px 0 0;
-    }
     .steps li {
-      margin-bottom: 6px;
-      font-size: 13px;
-      color: rgba(55, 65, 81, 0.85);
-      line-height: 1.5;
+      margin-bottom: 0.6rem;
     }
 
-    .email-box {
-      margin-top: 12px;
-      border-radius: 16px;
-      padding: 12px 14px;
-      border: 1px dashed rgba(148, 163, 184, 0.75);
-      background: rgba(255, 255, 255, 0.85);
-    }
-    .email-label {
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(100, 116, 139, 0.9);
-    }
-    .email-row {
-      margin-top: 6px;
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .email-value {
-      font-size: 14px;
-      font-weight: 950;
-      color: rgba(17, 24, 39, 0.95);
-    }
-    .copy-btn {
-      border: 1px solid rgba(15, 118, 110, 0.35);
-      background: rgba(15, 118, 110, 0.08);
-      color: rgba(15, 118, 110, 0.95);
-      border-radius: 999px;
-      padding: 8px 12px;
-      font-size: 12px;
-      font-weight: 900;
-      cursor: pointer;
-    }
-    .copy-btn:active { transform: translateY(1px); }
-
-    .hint {
-      margin-top: 8px;
-      font-size: 12px;
-      color: rgba(55, 65, 81, 0.75);
-      line-height: 1.45;
+    .video-placeholder {
+      margin-top: 2rem;
+      padding: 2rem;
+      border: 2px dashed #d1d5db;
+      border-radius: 12px;
+      color: #6b7280;
+      text-align: center;
+      font-size: 0.9rem;
     }
 
-    .tt-video {
-      margin-top: 14px;
-      position: relative;
-      padding-top: 56.25%;
-      border-radius: 16px;
-      overflow: hidden;
-      background: #000;
-      border: 1px solid rgba(229, 231, 235, 0.9);
-    }
-    .tt-video iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    @media (max-width: 560px) {
-      .hero h1 { font-size: 23px; }
-    }
-
-    /* Tiny logo support for footer */
-    .tt-footer-logo {
-      width: 16px;
-      height: 16px;
-      object-fit: contain;
-      border-radius: 3px;
-      display: inline-block;
+    .reassure {
+      font-size: 0.95rem;
+      color: #374151;
+      margin-top: 1.5rem;
     }
   </style>
 </head>
 
 <body>
-  <main class="ty-page">
 
-    <!-- Breadcrumb -->
-    <div class="crumbs">
-      <a href="../index.html">TinyTeam home</a> ·
-      <a href="../products/GEN-01.html">GEN-01 offer</a> ·
-      <span>Thank You</span>
-    </div>
+<!-- =========================
+   Sticky Trust Bar
+========================= -->
+<header class="trust-bar">
+  <div class="trust-left">
+    <img src="../assets/logo/tinyteam-square.png" alt="TinyTeam" class="tiny-logo" />
+    <span>TinyTeam Digital Library</span>
+  </div>
+  <div class="trust-right">
+    <a href="../index.html">Home</a>
+    <a href="mailto:smallsteps@tinyteamstudio.online">Email</a>
+    <a href="../help/index.html">Help</a>
+  </div>
+</header>
 
-    <!-- Hero -->
-    <section class="hero">
-      <h1>Thank You 💛</h1>
+<!-- =========================
+   Thank You Content
+========================= -->
+<section class="band band-white">
+  <div class="content thank-wrap">
+
+    <div class="center">
+      <div class="checkmark">✔</div>
+      <h1>Thank You</h1>
       <p>
-        You’re building something meaningful — a living record that can be shared and preserved.
-        Below are the next steps so we can match your payment correctly and prepare your TinyTeam Digital Library.
+        Your payment has been received or is being verified.
+        We truly appreciate your trust in preserving your family or community legacy.
       </p>
-
-      <div class="nav-row">
-        <a class="link-btn alt" id="backToGenBtn" href="../products/GEN-01.html">← Back to GEN-01</a>
-        <a class="link-btn alt" id="payViaQrBtn" href="../payments/qr.html">Pay via QR →</a>
-        <a class="link-btn" href="../help/">Help</a>
-        <a class="link-btn alt" href="../index.html">TinyTeam Home</a>
-      </div>
-    </section>
-
-    <div class="grid">
-
-      <!-- Attribution box -->
-      <section class="panel note" id="attributionBox" aria-live="polite">
-        <strong id="attributionTitle">Attribution</strong>
-        <p id="attributionText">Loading…</p>
-      </section>
-
-      <!-- Steps -->
-      <section class="panel steps">
-        <h2>Next Steps</h2>
-        <span class="pill">✅ You’re on the right track.</span>
-
-        <ol>
-          <li>Complete your payment using the QR page.</li>
-          <li>Take a screenshot of your successful payment (reference number + date).</li>
-          <li>Email your screenshot and order details to us.</li>
-          <li>We verify and prepare your access within <strong>24–48 hours</strong>.</li>
-          <li>We send your library + guide so you can begin building immediately.</li>
-        </ol>
-
-        <div class="email-box">
-          <div class="email-label">Send your receipt &amp; order details to</div>
-
-          <div class="email-row">
-            <span class="email-value" id="supportEmail">smallsteps@tinyteamstudio.online</span>
-            <button class="copy-btn" type="button" id="copyEmailBtn">Copy email</button>
-            <span class="hint" id="copyStatus" style="margin:0;"></span>
-          </div>
-
-          <a id="emailNowBtn" class="link-btn alt" href="#" style="margin-top:10px;">
-            Email Receipt Now →
-          </a>
-
-          <p class="hint">
-            Please include: <br />
-            • Template name: <strong>GEN-01 Legacy Family Tree</strong><br />
-            • Your full name<br />
-            • Selected package: <strong>Starter / Growth / Enterprise</strong><br />
-            • Preferred output: <strong>A5 / A4 / A3 / Book</strong><br />
-            • If applicable: your reseller code (shown above)
-          </p>
-        </div>
-      </section>
-
-      <!-- Tutorial (optional placeholder) -->
-      <section class="panel">
-        <h2>Quick Tutorial (Optional)</h2>
-        <p class="hint" style="margin-top:-2px;">
-          Prefer watching instead of reading? A short walkthrough video will be placed here.
-          You can still follow the written guide in the Help page anytime.
-        </p>
-
-        <div class="tt-video">
-          <iframe
-            src="https://www.youtube.com/embed/VIDEO_ID"
-            title="TinyTeam Quick Tutorial"
-            frameborder="0"
-            allowfullscreen>
-          </iframe>
-        </div>
-
-        <div class="nav-row" style="margin-top:12px;">
-          <a class="link-btn alt" href="../help/">Open Help & Instructions →</a>
-        </div>
-      </section>
-
-      <!-- Reassurance -->
-      <section class="panel">
-        <h2>What Happens After Verification</h2>
-        <p class="hint">
-          Once verified, we’ll email your system access and instructions.
-          Your library is designed to grow — you can start small, then expand over time.
-          Print-ready formats (A5/A4/A3/book) are supported whenever you decide to print.
-        </p>
-      </section>
-
     </div>
 
-    <!-- Footer with logos + correct relative links -->
-    <footer class="tt-footer" style="margin-top:24px;">
-      <div class="tt-footer-inner">
+    <!-- What Happens Next -->
+    <div class="soft-box">
+      <h2>What Happens Next</h2>
+      <ol class="steps">
+        <li>We manually verify your payment</li>
+        <li>We review your selected product and details</li>
+        <li>Your digital library structure is carefully prepared</li>
+        <li>You will receive instructions or files via email</li>
+      </ol>
+      <p class="reassure">
+        This is a human-handled process — not automated.
+        Your data is treated with care, respect, and long-term purpose.
+      </p>
+    </div>
 
-        <div class="tt-footer-brand">
-          <img
-            src="../assets/logo/tinyteam-logo.jpeg"
-            alt="TinyTeam Digital Library"
-            class="tt-footer-logo"
-            loading="lazy"
-          />
-          <span>TinyTeam Digital Library</span>
-        </div>
-
-        <div class="tt-footer-powered">
-          <span>Powered by</span>
-          <img
-            src="../assets/logo/buildframe-logo.png"
-            alt="BuildFrame Digital System"
-            class="tt-footer-logo"
-            loading="lazy"
-          />
-          <span>BuildFrame Digital System</span>
-        </div>
-
-        <div class="tt-footer-help">
-          <a href="../help/">Help</a>
-        </div>
-
-      </div>
-    </footer>
-
-  </main>
-
-  <script>
-    // --- Ensure reseller ref persists ---
-    const params = new URLSearchParams(window.location.search);
-    const refFromUrl = params.get("ref");
-    if (refFromUrl) localStorage.setItem("tt_ref", refFromUrl);
-
-    const storedRef = localStorage.getItem("tt_ref") || "";
-
-    // --- Attribution copy ---
-    const attributionTitle = document.getElementById("attributionTitle");
-    const attributionText = document.getElementById("attributionText");
-
-    if (storedRef) {
-      attributionTitle.textContent = "Reseller attribution";
-      attributionText.innerHTML =
-        `This purchase is credited to reseller <b>${storedRef}</b>. A <b>25% reseller commission</b> applies.`;
-    } else {
-      attributionTitle.textContent = "Direct TinyTeam purchase";
-      attributionText.textContent =
-        "No reseller code detected. This purchase will be recorded as a direct TinyTeam sale.";
-    }
-
-    // --- Keep ref across buttons ---
-    const backToGenBtn = document.getElementById("backToGenBtn");
-    const payViaQrBtn = document.getElementById("payViaQrBtn");
-
-    function appendRefIfNeeded(anchorEl) {
-      if (!anchorEl || !storedRef) return;
-      const base = anchorEl.getAttribute("href");
-      anchorEl.setAttribute("href", `${base}?ref=${encodeURIComponent(storedRef)}`);
-    }
-
-    appendRefIfNeeded(backToGenBtn);
-    appendRefIfNeeded(payViaQrBtn);
-
-    // --- Copy email button (safe) ---
-    const copyBtn = document.getElementById("copyEmailBtn");
-    const emailEl = document.getElementById("supportEmail");
-    const copyStatus = document.getElementById("copyStatus");
-
-    if (copyBtn && emailEl && copyStatus) {
-      copyBtn.addEventListener("click", async () => {
-        const email = emailEl.textContent.trim();
-        try {
-          await navigator.clipboard.writeText(email);
-          copyStatus.textContent = "Copied ✔";
-          setTimeout(() => (copyStatus.textContent = ""), 1600);
-        } catch (e) {
-          copyStatus.textContent = "Copy failed — please copy manually.";
-          setTimeout(() => (copyStatus.textContent = ""), 2200);
-        }
-      });
-    }
-
-    // --- Email Receipt Now (prefilled draft) ---
-    const supportEmail = "smallsteps@tinyteamstudio.online";
-    const productName = "GEN-01 Legacy Family Tree";
-
-    const subject = encodeURIComponent(
-      `TinyTeam Payment Receipt — ${productName}${storedRef ? " — Ref " + storedRef : ""}`
-    );
-
-    const bodyLines = [
-      "Hello TinyTeam,",
-      "",
-      "I completed a QR payment. Here are my details:",
-      `• Product: ${productName}`,
-      "• Package: (Starter/Growth/Enterprise)",
-      "• Amount Paid: (write amount)",
-      "• Currency: (PHP/USD)",
-      "• Date Paid: (write date)",
-      "• Payment Method: (GCash/Maya/PNB/GoTyme)",
-      storedRef ? `• Reseller Code: ${storedRef}` : "• Reseller Code: (none / direct)",
-      "• Preferred output: (A5/A4/A3/Book)",
-      "",
-      "Attached: Screenshot of successful payment",
-      "",
-      "Thank you."
-    ];
-
-    const body = encodeURIComponent(bodyLines.join("\n"));
-    const mailto = `mailto:${supportEmail}?subject=${subject}&body=${body}`;
-
-    const emailNowBtn = document.getElementById("emailNowBtn");
-    if (emailNowBtn) emailNowBtn.href = mailto;
-  </script>
-</body>
-</html>
+    <!-- Forever Reassurance -->
+    <div class="soft-box">
+      <h2>This Is a Living Heirloom</h2>
+      <p>
+        Your TinyTeam Digital Library is designed for long-term access.
+        Even if phy
