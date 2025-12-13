@@ -2,160 +2,243 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Help · TinyTeam Digital Library</title>
-  <meta
-    name="description"
-    content="Guidance, instructions, and frequently asked questions for using your TinyTeam Digital Library."
-  />
+  <title>Help & Guide · TinyTeam Digital Library</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Help guide for managing family trees, complex relationships, and legacy records in the TinyTeam Digital Library." />
   <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    /* Page-specific, light and readable */
+    .help-wrap {
+      max-width: 860px;
+      margin: auto;
+    }
+
+    .help-section {
+      margin-bottom: 3rem;
+    }
+
+    .help-section h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .help-section p {
+      color: #374151;
+    }
+
+    .faq {
+      margin-top: 1.5rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-item strong {
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .soft-box {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .video-placeholder {
+      margin-top: 2rem;
+      padding: 2rem;
+      border: 2px dashed #d1d5db;
+      border-radius: 12px;
+      color: #6b7280;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 
 <body>
 
-  <main class="tt-help">
+<!-- =========================
+   Sticky Trust Bar
+========================= -->
+<header class="trust-bar">
+  <div class="trust-left">
+    <img src="../assets/logo/tinyteam-square.png" alt="TinyTeam" class="tiny-logo" />
+    <span>TinyTeam Digital Library</span>
+  </div>
+  <div class="trust-right">
+    <a href="../index.html">Home</a>
+    <a href="mailto:smallsteps@tinyteamstudio.online">Email</a>
+  </div>
+</header>
 
-    <!-- Header -->
-    <section class="tt-block">
-      <h1>Help & Guidance</h1>
-      <p class="tt-intro">
-        Welcome to the TinyTeam Digital Library help space.
-        This page is designed to guide you gently — you can read, pause,
-        and return anytime. Nothing here is urgent.
-      </p>
+<!-- =========================
+   Help Content
+========================= -->
+<section class="band band-white">
+  <div class="content help-wrap">
 
-      <!-- Quick links (simple UX boost) -->
-      <div class="tt-hero-links" style="margin-top: 12px;">
-        <a class="tt-link" href="../index.html">TinyTeam Home</a>
-        <a class="tt-link" href="../products/GEN-01.html">GEN-01 Offer</a>
-        <a class="tt-link" href="../payments/qr.html">Pay via QR</a>
-        <a class="tt-link" href="../payments/thank-you.html">Thank You</a>
-      </div>
-    </section>
-
-    <!-- Optional Video -->
-    <section class="tt-block tt-soft">
-      <h2>Video Walkthrough (Optional)</h2>
-      <p>
-        If you prefer visual guidance, this short walkthrough explains how
-        TinyTeam works and how your library can grow over time.
-      </p>
-
-      <div class="tt-video">
-        <!-- Placeholder video -->
-        <!-- Replace VIDEO_ID later when your real video is ready -->
-        <iframe
-          src="https://www.youtube.com/embed/VIDEO_ID"
-          title="TinyTeam Digital Library Walkthrough"
-          frameborder="0"
-          allowfullscreen>
-        </iframe>
-      </div>
-
-      <p style="font-size: 0.9rem; color: #666; margin-top: 8px;">
-        You may skip the video and follow the written steps below if you prefer.
-      </p>
-    </section>
-
-    <!-- Getting Started -->
-    <section class="tt-block">
-      <h2>Getting Started</h2>
-
-      <h3>Step 1: Start with What You Know</h3>
-      <p>
-        You don’t need complete information to begin.
-        Names, basic relationships, and partial details are enough.
-      </p>
-
-      <h3>Step 2: Build Real Relationships</h3>
-      <p>
-        TinyTeam supports real-life structures — blended families,
-        multiple parents, extended relatives, and evolving communities.
-      </p>
-
-      <h3>Step 3: Honor Loved Ones</h3>
-      <p>
-        You may mark loved ones who have passed away using
-        an <em>In Loving Memory</em> designation.
-        Their place remains visible and respected.
-      </p>
-
-      <h3>Step 4: Grow Over Time</h3>
-      <p>
-        Your library is not meant to be finished in one sitting.
-        You can return anytime to add more people, stories, or updates.
-      </p>
-
-      <h3>Step 5: Decide on Output Later</h3>
-      <p>
-        Your library can remain cloud-based or be prepared later
-        for printing (A5, A4, A3, or book formats).
-        You don’t need to decide now.
-      </p>
-    </section>
-
-    <!-- FAQ -->
-    <section class="tt-block tt-soft">
-      <h2>Frequently Asked Questions</h2>
-
-      <details>
-        <summary>What if our family or community setup is complicated?</summary>
-        <p>
-          TinyTeam supports real-life situations including blended families,
-          multiple parents, adopted members, and extended relationships.
-        </p>
-      </details>
-
-      <details>
-        <summary>Can we start small and expand later?</summary>
-        <p>
-          Yes. Many users begin with a small group and grow their library
-          as more information becomes available.
-        </p>
-      </details>
-
-      <details>
-        <summary>How are deceased loved ones handled?</summary>
-        <p>
-          You can mark a person as <em>In Loving Memory</em>.
-          Their role remains part of the family or community record.
-        </p>
-      </details>
-
-      <details>
-        <summary>Is printing handled automatically?</summary>
-        <p>
-          Yes. Layout, margins, and binding rules are handled automatically
-          when you choose a print format.
-        </p>
-      </details>
-
-      <details>
-        <summary>Do we own our data?</summary>
-        <p>
-          Yes. Your data belongs to you and remains part of your library
-          as it grows over time.
-        </p>
-      </details>
-    </section>
-
-    <!-- Support -->
-    <section class="tt-block">
-      <h2>Need Further Help?</h2>
-      <p>
-        If you still have questions, you can contact us anytime at
-        <strong>smallsteps@tinyteamstudio.online</strong>.
-      </p>
-    </section>
-
-  </main>
-
-  <footer class="tt-footer">
+    <h1>Help & Guidance</h1>
     <p>
-      TinyTeam Digital Library · Powered by BuildFrame Digital System ·
-      <a href="/help/">Help</a>
+      This guide is written for everyone — whether you are familiar with computers or not.
+      Our goal is to help you preserve family and community history with clarity, care, and respect.
     </p>
-  </footer>
+
+    <!-- =========================
+       Complex Families
+    ========================= -->
+    <div class="help-section">
+      <h2>Handling Complex Family Structures</h2>
+      <p>
+        Families come in many forms. The TinyTeam Digital Library is designed to support real life,
+        not force families into rigid templates.
+      </p>
+
+      <div class="faq">
+        <div class="faq-item">
+          <strong>Blended families (multiple marriages or partners)</strong>
+          <p>
+            Each relationship can be clearly recorded. Parents, step-parents, and children
+            are shown in a way that respects their connections without confusion.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Same father or mother, different partners</strong>
+          <p>
+            Children can be linked correctly to their biological parents while still showing
+            household or partnership relationships where appropriate.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Adoption (formal or informal)</strong>
+          <p>
+            Adopted children can be represented with dignity.
+            Notes can be added to explain the relationship in a respectful, private way.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <strong>Unknown or undisclosed parents</strong>
+          <p>
+            It is acceptable to leave certain fields blank or mark them as unknown.
+            The system respects privacy and sensitive histories.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================
+       Deceased & Memorials
+    ========================= -->
+    <div class="help-section">
+      <h2>In Loving Memory</h2>
+      <p>
+        The TinyTeam Digital Library honors those who have passed away.
+        A person’s legacy does not disappear with time.
+      </p>
+
+      <div class="soft-box">
+        <p>
+          Deceased family members can have dedicated legacy pages that include:
+        </p>
+        <ul>
+          <li>Photos and life stories</li>
+          <li>Dates and milestones</li>
+          <li>Messages from loved ones</li>
+          <li>Achievements and memories</li>
+        </ul>
+        <p>
+          These pages are created with care and respect — never removed unless requested.
+        </p>
+      </div>
+    </div>
+
+    <!-- =========================
+       Privacy & Control
+    ========================= -->
+    <div class="help-section">
+      <h2>Privacy, Control & Respect</h2>
+      <p>
+        You decide what information is included.
+        Sensitive details can be kept minimal or private.
+      </p>
+      <p>
+        This is not social media.
+        It is a personal and meaningful archive.
+      </p>
+    </div>
+
+    <!-- =========================
+       How Delivery Works
+    ========================= -->
+    <div class="help-section">
+      <h2>How Delivery Works</h2>
+      <p>
+        TinyTeam Digital Library uses a manual, human-reviewed process.
+      </p>
+
+      <ol>
+        <li>You choose a product and complete payment</li>
+        <li>You email your receipt and basic details</li>
+        <li>Your digital library is carefully prepared</li>
+        <li>You receive access or files via email</li>
+      </ol>
+
+      <p>
+        This approach ensures accuracy, privacy, and long-term reliability.
+      </p>
+    </div>
+
+    <!-- =========================
+       Video Placeholder
+    ========================= -->
+    <div class="video-placeholder">
+      Help & walkthrough video will appear here.<br />
+      (We will explain how to read, share, and expand your digital library.)
+    </div>
+
+    <!-- =========================
+       Contact
+    ========================= -->
+    <div class="help-section">
+      <h2>Need Personal Assistance?</h2>
+      <p>
+        If you are unsure how to describe your family or community,
+        you may contact us directly.
+      </p>
+      <p>
+        📧 <strong>smallsteps@tinyteamstudio.online</strong>
+      </p>
+      <p>
+        We are happy to guide you — patiently and respectfully.
+      </p>
+    </div>
+
+    <div class="center">
+      <a class="btn primary" href="../index.html">Back to Home</a>
+      <a class="btn secondary" href="../products/GEN-01.html">View Product</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================
+   Footer
+========================= -->
+<footer>
+  <p>
+    <img src="../assets/logo/tinyteam-square.png" class="tiny-icon" />
+    TinyTeam Digital Library ·
+    <img src="../assets/logo/buildframe-square.png" class="tiny-icon" />
+    Powered by BuildFrame Digital System ·
+    <a href="../index.html">Home</a>
+  </p>
+</footer>
 
 </body>
 </html>
