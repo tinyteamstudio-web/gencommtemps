@@ -4,18 +4,23 @@
   <meta charset="UTF-8" />
   <title>GEN-02 · Community & Clan Digital Library</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="GEN-02 Community & Clan Digital Library — a living archive for large families, clans, and communities." />
+  <meta
+    name="description"
+    content="GEN-02 Community & Clan Digital Library — a living archive for large families, clans, and communities."
+  />
   <link rel="stylesheet" href="../styles.css" />
 
   <style>
     /* Page-specific (minimal + non-overlapping) */
     .product-wrap { max-width: 1000px; margin: auto; }
+
     .product-hero {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
       gap: 2.25rem;
       align-items: start;
     }
+
     @media (max-width: 860px) {
       .product-hero { grid-template-columns: 1fr; }
     }
@@ -67,18 +72,30 @@
 
 <body>
 
+<!-- =========================
+   Sticky Trust Bar (STANDARD)
+========================= -->
 <header class="trust-bar">
   <div class="trust-left">
-    <img src="../assets/logo/tinyteam-square.png" alt="TinyTeam" class="tiny-logo" />
+    <img
+      src="../assets/logo/tinyteam-logo.jpeg"
+      alt="TinyTeam"
+      class="tiny-logo"
+    />
     <span>TinyTeam Digital Library</span>
   </div>
   <div class="trust-right">
     <a href="../index.html">Home</a>
+    <a href="../submit/index.html">Guided Submission</a>
+    <a href="../updates/index.html">Living Updates</a>
     <a href="mailto:smallsteps@tinyteamstudio.online">Email</a>
     <a href="../help/index.html">Help</a>
   </div>
 </header>
 
+<!-- =========================
+   Product Content
+========================= -->
 <section class="band band-white">
   <div class="content product-wrap">
 
@@ -140,7 +157,7 @@
       </div>
 
       <p class="note" style="margin-top:0.75rem;">
-        This is designed to be understandable for all generations — tech or non-tech.
+        Designed to be understandable for all generations — tech or non-tech.
       </p>
     </div>
 
@@ -179,6 +196,7 @@
         <li>We prepare the archive manually with care</li>
         <li>Delivery instructions or files are sent via email</li>
       </ol>
+
       <p class="note">
         This is a human-handled process to ensure accuracy, respect, and long-term preservation.
       </p>
@@ -188,7 +206,7 @@
       </div>
     </div>
 
-    <!-- LIVING UPDATES (A2) -->
+    <!-- LIVING UPDATES -->
     <div class="soft-box">
       <h2>Living Updates</h2>
       <p class="note">
@@ -204,8 +222,9 @@
     <div class="soft-box">
       <h2>A Living Community Archive</h2>
       <p class="note">
-        GEN-02 is designed as a long-term historical record. Even as leaders change or generations pass,
-        the archive remains accessible, organized, and meaningful.
+        GEN-02 is designed as a long-term historical record.
+        Even as leaders change or generations pass, the archive remains accessible,
+        organized, and meaningful.
       </p>
     </div>
 
@@ -220,16 +239,30 @@
   </div>
 </section>
 
+<!-- =========================
+   Footer (STANDARD)
+========================= -->
 <footer>
   <p>
-    <img src="../assets/logo/tinyteam-square.png" class="tiny-icon" alt="" />
+    <img
+      src="../assets/logo/tinyteam-logo.jpeg"
+      class="tiny-icon"
+      alt=""
+    />
     TinyTeam Digital Library ·
-    <img src="../assets/logo/buildframe-square.png" class="tiny-icon" alt="" />
+    <img
+      src="../assets/logo/buildframe-logo.png"
+      class="tiny-icon"
+      alt=""
+    />
     Powered by BuildFrame Digital System ·
     <a href="../help/index.html">Help</a>
   </p>
 </footer>
 
+<!-- =========================
+   Reseller Tracking (Passive)
+========================= -->
 <script>
   (function () {
     const el = document.getElementById('refDisplay');
@@ -243,11 +276,7 @@
     }
 
     const storedRef = localStorage.getItem('ttgl_ref');
-    if (storedRef) {
-      el.textContent = 'Referral code applied: ' + storedRef;
-    } else {
-      el.textContent = '';
-    }
+    el.textContent = storedRef ? 'Referral code applied: ' + storedRef : '';
   })();
 </script>
 
