@@ -20,36 +20,67 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 0.75rem;
-      margin: 2rem 0;
+      margin: 1.4rem 0 0.5rem;
+    }
+
+    .qr-buttons .btn {
+      cursor: pointer;
+    }
+
+    .qr-buttons .btn.is-active {
+      outline: 2px solid rgba(99, 102, 241, 0.35);
+      outline-offset: 2px;
     }
 
     .qr-box {
       display: none;
-      margin-top: 2rem;
+      margin-top: 1.2rem;
+    }
+
+    .qr-box.is-visible {
+      display: block;
     }
 
     .qr-box img {
-      max-width: 260px;
-      margin: 1rem auto;
+      max-width: 280px;
+      margin: 0.9rem auto 0;
       border-radius: 12px;
       border: 1px solid #e5e7eb;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+      background: #fff;
     }
 
     .notice {
       font-size: 0.9rem;
       color: #4b5563;
-      margin-top: 2rem;
+      margin-top: 1.25rem;
     }
 
     .step-list {
       text-align: left;
       max-width: 520px;
-      margin: 2rem auto;
+      margin: 1.5rem auto 0;
       font-size: 0.95rem;
     }
 
-    .step-list li {
-      margin-bottom: 0.6rem;
+    .step-list li { margin-bottom: 0.6rem; }
+
+    .qr-meta {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin-top: 0.25rem;
+    }
+
+    .hide-row {
+      margin-top: 0.75rem;
+      display: none;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .hide-row.is-visible {
+      display: flex;
     }
   </style>
 </head>
@@ -57,15 +88,22 @@
 <body>
 
 <!-- =========================
-   Sticky Trust Bar
+   Sticky Trust Bar (STANDARD)
 ========================= -->
 <header class="trust-bar">
   <div class="trust-left">
-    <img src="../assets/logo/tinyteam-square.png" alt="TinyTeam" class="tiny-logo" />
+    <img
+      src="../assets/logo/tinyteam-logo.jpeg"
+      alt="TinyTeam"
+      class="tiny-logo"
+    />
     <span>TinyTeam Digital Library</span>
   </div>
+
   <div class="trust-right">
     <a href="../index.html">Home</a>
+    <a href="../submit/index.html">Guided Submission</a>
+    <a href="../updates/index.html">Living Updates</a>
     <a href="mailto:smallsteps@tinyteamstudio.online">Email</a>
     <a href="../help/index.html">Help</a>
   </div>
@@ -78,57 +116,61 @@
   <div class="content qr-wrap">
 
     <h1>Pay Securely via QR</h1>
-    <p>
-      Choose your preferred payment method below.
-      Your payment supports the creation of a digital family or community legacy
-      — preserved for generations.
+    <p class="qr-meta">
+      Choose your preferred payment method below. After paying, email your receipt so we can verify and start building your library.
     </p>
 
     <!-- Payment Buttons -->
-    <div class="qr-buttons">
-      <button class="btn secondary" onclick="showQR('gcash')">GCash</button>
-      <button class="btn secondary" onclick="showQR('maya')">Maya</button>
-      <button class="btn secondary" onclick="showQR('pnb')">PNB</button>
-      <button class="btn secondary" onclick="showQR('gotym')">GoTyme</button>
+    <div class="qr-buttons" role="group" aria-label="Choose a payment method">
+      <button type="button" class="btn secondary" data-target="gcash" onclick="showQR('gcash')">GCash</button>
+      <button type="button" class="btn secondary" data-target="maya" onclick="showQR('maya')">Maya</button>
+      <button type="button" class="btn secondary" data-target="pnb" onclick="showQR('pnb')">PNB</button>
+      <button type="button" class="btn secondary" data-target="gotym" onclick="showQR('gotym')">GoTyme</button>
+    </div>
+
+    <div class="hide-row" id="hideRow">
+      <button type="button" class="btn ghost" onclick="hideQR()">Hide QR</button>
+      <a class="btn primary" href="thank-you.html">I’ve Paid</a>
     </div>
 
     <!-- QR Displays -->
-    <div id="gcash" class="qr-box">
+    <div id="gcash" class="qr-box" aria-live="polite">
       <h3>GCash QR</h3>
-      <img src="gcash-qr.jpeg" alt="GCash QR Code" />
+      <img src="../assets/qr/gcash-qr.jpeg" alt="GCash QR Code" />
     </div>
 
-    <div id="maya" class="qr-box">
+    <div id="maya" class="qr-box" aria-live="polite">
       <h3>Maya QR</h3>
-      <img src="maya-qr.jpeg" alt="Maya QR Code" />
+      <img src="../assets/qr/maya-qr.jpeg" alt="Maya QR Code" />
     </div>
 
-    <div id="pnb" class="qr-box">
+    <div id="pnb" class="qr-box" aria-live="polite">
       <h3>PNB QR</h3>
-      <img src="pnb-qr.jpeg" alt="PNB QR Code" />
+      <img src="../assets/qr/pnb-qr.jpeg" alt="PNB QR Code" />
     </div>
 
-    <div id="gotym" class="qr-box">
+    <div id="gotym" class="qr-box" aria-live="polite">
       <h3>GoTyme QR</h3>
-      <img src="gotym-qr.jpeg" alt="GoTyme QR Code" />
+      <img src="../assets/qr/gotym-qr.jpeg" alt="GoTyme QR Code" />
     </div>
 
     <!-- Instructions -->
     <ol class="step-list">
-      <li>Scan the QR code using your banking or wallet app</li>
+      <li>Tap a payment method to reveal the QR code</li>
+      <li>Scan using your banking or wallet app</li>
       <li>Complete the payment</li>
       <li>Email your payment receipt to <strong>smallsteps@tinyteamstudio.online</strong></li>
-      <li>Include your name and product purchased (e.g. GEN-01)</li>
-      <li>Your digital library will be prepared and delivered manually</li>
+      <li>Include your name + product purchased (e.g., <strong>GEN-01</strong> or <strong>GEN-02</strong>)</li>
+      <li>Your digital library is prepared and delivered manually</li>
     </ol>
 
     <p class="notice">
-      This is a manual, human-reviewed process.
-      Your data is treated with care, respect, and long-term preservation in mind.
+      This is a manual, human-reviewed process. Your information is treated with care, respect, and long-term preservation in mind.
     </p>
 
-    <div class="cta-group">
-      <a class="btn ghost" href="../products/GEN-01.html">Back to Product</a>
+    <div class="cta-group" style="margin-top:1rem;">
+      <a class="btn ghost" href="../products/GEN-01.html">Back to GEN-01</a>
+      <a class="btn ghost" href="../products/GEN-02.html">Back to GEN-02</a>
       <a class="btn primary" href="thank-you.html">I’ve Paid</a>
     </div>
 
@@ -136,13 +178,21 @@
 </section>
 
 <!-- =========================
-   Footer
+   Footer (STANDARD)
 ========================= -->
 <footer>
   <p>
-    <img src="../assets/logo/tinyteam-square.png" class="tiny-icon" />
+    <img
+      src="../assets/logo/tinyteam-logo.jpeg"
+      class="tiny-icon"
+      alt=""
+    />
     TinyTeam Digital Library ·
-    <img src="../assets/logo/buildframe-square.png" class="tiny-icon" />
+    <img
+      src="../assets/logo/buildframe-logo.png"
+      class="tiny-icon"
+      alt=""
+    />
     Powered by BuildFrame Digital System ·
     <a href="../help/index.html">Help</a>
   </p>
@@ -153,11 +203,43 @@
 ========================= -->
 <script>
   function showQR(id) {
+    // hide all
     document.querySelectorAll('.qr-box').forEach(box => {
-      box.style.display = 'none';
+      box.classList.remove('is-visible');
     });
-    document.getElementById(id).style.display = 'block';
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+
+    // remove active state on buttons
+    document.querySelectorAll('.qr-buttons .btn').forEach(btn => {
+      btn.classList.remove('is-active');
+    });
+
+    // show selected
+    const el = document.getElementById(id);
+    if (el) el.classList.add('is-visible');
+
+    // set active state on matching button
+    const activeBtn = document.querySelector(`.qr-buttons .btn[data-target="${id}"]`);
+    if (activeBtn) activeBtn.classList.add('is-active');
+
+    // show hide row
+    const hideRow = document.getElementById('hideRow');
+    if (hideRow) hideRow.classList.add('is-visible');
+
+    // scroll
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function hideQR() {
+    document.querySelectorAll('.qr-box').forEach(box => {
+      box.classList.remove('is-visible');
+    });
+
+    document.querySelectorAll('.qr-buttons .btn').forEach(btn => {
+      btn.classList.remove('is-active');
+    });
+
+    const hideRow = document.getElementById('hideRow');
+    if (hideRow) hideRow.classList.remove('is-visible');
   }
 </script>
 
