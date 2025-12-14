@@ -4,18 +4,23 @@
   <meta charset="UTF-8" />
   <title>GEN-01 · Family Digital Library</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="GEN-01 Family Digital Library — a living genealogy and legacy system with forever access." />
+  <meta
+    name="description"
+    content="GEN-01 Family Digital Library — a living genealogy and legacy system with forever access."
+  />
   <link rel="stylesheet" href="../styles.css" />
 
   <style>
     /* Page-specific (minimal + non-overlapping) */
     .product-wrap { max-width: 980px; margin: auto; }
+
     .product-hero {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
       gap: 2.25rem;
       align-items: start;
     }
+
     @media (max-width: 860px) {
       .product-hero { grid-template-columns: 1fr; }
     }
@@ -75,18 +80,30 @@
 
 <body>
 
+<!-- =========================
+   Sticky Trust Bar (STANDARD)
+========================= -->
 <header class="trust-bar">
   <div class="trust-left">
-    <img src="../assets/logo/tinyteam-square.png" alt="TinyTeam" class="tiny-logo" />
+    <img
+      src="../assets/logo/tinyteam-logo.jpeg"
+      alt="TinyTeam"
+      class="tiny-logo"
+    />
     <span>TinyTeam Digital Library</span>
   </div>
   <div class="trust-right">
     <a href="../index.html">Home</a>
+    <a href="../submit/index.html">Guided Submission</a>
+    <a href="../updates/index.html">Living Updates</a>
     <a href="mailto:smallsteps@tinyteamstudio.online">Email</a>
     <a href="../help/index.html">Help</a>
   </div>
 </header>
 
+<!-- =========================
+   Product Content
+========================= -->
 <section class="band band-white">
   <div class="content product-wrap">
 
@@ -124,7 +141,7 @@
           <li>Manual review and careful preparation (human-handled)</li>
         </ul>
         <p class="note" style="margin-top:0.75rem;">
-          This is designed to be understandable for all generations — tech or non-tech.
+          Designed to be understandable for all generations — tech or non-tech.
         </p>
       </div>
     </div>
@@ -136,27 +153,28 @@
         Choose how your library is structured and exported. You can decide now or later.
       </p>
 
-      <div class="sizes" role="list">
-        <div class="size-card" role="listitem">
+      <div class="sizes">
+        <div class="size-card">
           <strong>A5</strong>
           <p class="note">Compact keepsake style</p>
         </div>
-        <div class="size-card" role="listitem">
+        <div class="size-card">
           <strong>A4</strong>
           <p class="note">Standard document and sharing format</p>
         </div>
-        <div class="size-card" role="listitem">
+        <div class="size-card">
           <strong>A3</strong>
           <p class="note">Recommended for large families</p>
         </div>
-        <div class="size-card" role="listitem">
+        <div class="size-card">
           <strong>Book Format</strong>
           <p class="note">Chapter / list structure for huge families</p>
         </div>
       </div>
 
       <p class="note" style="margin-top: 1rem;">
-        A3 and Book formats are ideal for very large families. Future merging of multiple branches is supported.
+        A3 and Book formats are ideal for very large families.
+        Future merging of multiple branches is supported.
       </p>
     </div>
 
@@ -167,12 +185,13 @@
         <li>Complete payment via QR</li>
         <li>Email your receipt to <strong>smallsteps@tinyteamstudio.online</strong></li>
         <li>Include your name + product code <strong>GEN-01</strong> + any notes</li>
-        <li>We prepare your library manually with care</li>
+        <li>Your library is prepared manually with care</li>
         <li>Delivery instructions or files are sent via email</li>
       </ol>
 
       <p class="note">
-        This is a human-handled process. Accuracy, respect, and long-term preservation matter.
+        This is a human-handled process.
+        Accuracy, respect, and long-term preservation matter.
       </p>
 
       <div class="cta-group" style="margin-top:1rem;">
@@ -180,11 +199,11 @@
       </div>
     </div>
 
-    <!-- LIVING UPDATES (A2) -->
+    <!-- LIVING UPDATES -->
     <div class="soft-box">
       <h2>Living Updates</h2>
       <p class="note">
-        Families grow over time. You may request updates to your digital library anytime —
+        Families grow over time. You may request updates anytime —
         add new members, correct details, or include memorial notes.
       </p>
       <div class="cta-group">
@@ -196,7 +215,8 @@
     <div class="soft-box">
       <h2>A Living Heirloom</h2>
       <p class="note">
-        GEN-01 is not just a file or chart. It is a living digital heirloom — designed to remain accessible
+        GEN-01 is not just a file or chart.
+        It is a living digital heirloom — designed to remain accessible
         even when physical copies fade or generations pass.
       </p>
     </div>
@@ -212,16 +232,30 @@
   </div>
 </section>
 
+<!-- =========================
+   Footer (STANDARD)
+========================= -->
 <footer>
   <p>
-    <img src="../assets/logo/tinyteam-square.png" class="tiny-icon" alt="" />
+    <img
+      src="../assets/logo/tinyteam-logo.jpeg"
+      class="tiny-icon"
+      alt=""
+    />
     TinyTeam Digital Library ·
-    <img src="../assets/logo/buildframe-square.png" class="tiny-icon" alt="" />
+    <img
+      src="../assets/logo/buildframe-logo.png"
+      class="tiny-icon"
+      alt=""
+    />
     Powered by BuildFrame Digital System ·
     <a href="../help/index.html">Help</a>
   </p>
 </footer>
 
+<!-- =========================
+   Reseller Tracking (Passive)
+========================= -->
 <script>
   (function () {
     const el = document.getElementById('refDisplay');
@@ -235,14 +269,9 @@
     }
 
     const storedRef = localStorage.getItem('ttgl_ref');
-    if (storedRef) {
-      el.textContent = 'Referral code applied: ' + storedRef;
-    } else {
-      el.textContent = '';
-    }
+    el.textContent = storedRef ? 'Referral code applied: ' + storedRef : '';
   })();
 </script>
 
 </body>
 </html>
-
