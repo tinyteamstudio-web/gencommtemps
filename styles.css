@@ -26,7 +26,7 @@ body {
   overflow-x: hidden;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: rgba(17, 24, 39, 0.92);
-  background: #fafafa; /* page-level pages can override with inline gradients */
+  background: #fafafa;
   line-height: 1.5;
 }
 
@@ -48,7 +48,7 @@ a:hover {
 }
 
 /* =========================================================
-   Buttons (Reusable)
+   Buttons (Reusable) — original hyphen classes (kept)
    ========================================================= */
 .btn-primary {
   display: inline-flex;
@@ -63,11 +63,7 @@ a:hover {
   color: rgba(67, 56, 202, 1);
   text-decoration: none;
 }
-
-.btn-primary:hover {
-  filter: brightness(0.98);
-  text-decoration: none;
-}
+.btn-primary:hover { filter: brightness(0.98); text-decoration: none; }
 
 .btn-secondary {
   display: inline-flex;
@@ -82,15 +78,10 @@ a:hover {
   color: rgba(15, 118, 110, 0.95);
   text-decoration: none;
 }
-
-.btn-secondary:hover {
-  filter: brightness(0.98);
-  text-decoration: none;
-}
+.btn-secondary:hover { filter: brightness(0.98); text-decoration: none; }
 
 /* =========================================================
-   HOMEPAGE / MAIN PAGE LAYOUT (NEW)
-   This is what makes the homepage balanced + not dry.
+   PREMIUM TT SYSTEM (your existing styling)
    ========================================================= */
 
 /* Top bar */
@@ -128,10 +119,7 @@ a:hover {
   object-fit: contain;
 }
 
-.tt-topbar-title {
-  display: grid;
-  gap: 2px;
-}
+.tt-topbar-title { display: grid; gap: 2px; }
 
 .tt-topbar-name {
   font-weight: 900;
@@ -161,21 +149,10 @@ a:hover {
   background: rgba(15, 118, 110, 0.06);
   color: rgba(15, 118, 110, 0.95);
 }
-
-.tt-topbar-link:hover {
-  text-decoration: none;
-  filter: brightness(0.98);
-}
-
-/* Page wrapper */
-.tt-page {
-  width: 100%;
-}
+.tt-topbar-link:hover { text-decoration: none; filter: brightness(0.98); }
 
 /* Alternating bands */
-.tt-band {
-  padding: 44px 16px;
-}
+.tt-band { padding: 44px 16px; }
 
 .tt-band-hero {
   background: radial-gradient(
@@ -186,9 +163,7 @@ a:hover {
   );
 }
 
-.tt-band-white {
-  background: #ffffff;
-}
+.tt-band-white { background: #ffffff; }
 
 /* Card container inside each band */
 .tt-card {
@@ -214,27 +189,18 @@ a:hover {
 }
 
 .tt-text h1,
-.tt-text h2 {
-  margin: 0;
-  letter-spacing: -0.02em;
-}
+.tt-text h2 { margin: 0; letter-spacing: -0.02em; }
 
-.tt-text h1 {
-  font-size: 30px;
-  line-height: 1.12;
-}
+.tt-text h1 { font-size: 30px; line-height: 1.12; }
 
-.tt-text h2 {
-  font-size: 22px;
-  line-height: 1.2;
-}
+.tt-text h2 { font-size: 22px; line-height: 1.2; }
 
 .tt-text p {
   margin: 10px 0 0;
   color: rgba(55, 65, 81, 0.88);
   font-size: 14px;
   line-height: 1.6;
-  max-width: 60ch; /* keeps text readable */
+  max-width: 60ch;
 }
 
 .tt-media img {
@@ -246,7 +212,7 @@ a:hover {
   box-shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
 }
 
-/* Hero buttons */
+/* Button group */
 .tt-actions {
   margin-top: 14px;
   display: flex;
@@ -267,11 +233,7 @@ a:hover {
   color: rgba(67, 56, 202, 1);
   text-decoration: none;
 }
-
-.tt-btn:hover {
-  text-decoration: none;
-  filter: brightness(0.98);
-}
+.tt-btn:hover { text-decoration: none; filter: brightness(0.98); }
 
 .tt-btn-soft {
   border: 1px solid rgba(15, 118, 110, 0.25);
@@ -290,21 +252,11 @@ a:hover {
 }
 
 /* Lists */
-.tt-list {
-  margin: 10px 0 0;
-  padding-left: 18px;
-}
-
-.tt-list li {
-  margin-bottom: 6px;
-  color: rgba(55, 65, 81, 0.86);
-  font-size: 14px;
-}
+.tt-list { margin: 10px 0 0; padding-left: 18px; }
+.tt-list li { margin-bottom: 6px; color: rgba(55, 65, 81, 0.86); font-size: 14px; }
 
 /* Pricing grid */
-.tt-center {
-  text-align: center;
-}
+.tt-center { text-align: center; }
 
 .tt-lead {
   margin: 8px auto 0;
@@ -353,16 +305,8 @@ a:hover {
   color: rgba(17, 24, 39, 0.95);
 }
 
-.tt-mini {
-  margin: 0;
-  padding-left: 18px;
-}
-
-.tt-mini li {
-  margin-bottom: 6px;
-  font-size: 12px;
-  color: rgba(55, 65, 81, 0.84);
-}
+.tt-mini { margin: 0; padding-left: 18px; }
+.tt-mini li { margin-bottom: 6px; font-size: 12px; color: rgba(55, 65, 81, 0.84); }
 
 .tt-upsell {
   margin-top: 10px;
@@ -374,77 +318,31 @@ a:hover {
   color: rgba(55, 65, 81, 0.84);
 }
 
-/* Payment row */
-.tt-divider {
-  margin: 16px 0;
-  border-top: 1px dashed rgba(148, 163, 184, 0.65);
-}
-
-.tt-pay-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.tt-pay-actions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
 /* Responsive */
 @media (max-width: 960px) {
-  .tt-grid-3 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .tt-text h1 {
-    font-size: 26px;
-  }
+  .tt-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tt-text h1 { font-size: 26px; }
 }
 
 @media (max-width: 768px) {
   .tt-split,
-  .tt-split.tt-reverse {
-    grid-template-columns: 1fr;
-  }
+  .tt-split.tt-reverse { grid-template-columns: 1fr; }
 
-  .tt-media img {
-    max-width: 100%;
-    margin: 10px 0 0;
-  }
+  .tt-media img { max-width: 100%; margin: 10px 0 0; }
 
-  .tt-topbar-inner {
-    justify-content: center;
-    text-align: center;
-  }
-
-  .tt-topbar-left {
-    justify-content: center;
-  }
-
-  .tt-topbar-right {
-    justify-content: center;
-  }
+  .tt-topbar-inner { justify-content: center; text-align: center; }
+  .tt-topbar-left { justify-content: center; }
+  .tt-topbar-right { justify-content: center; }
 }
 
 @media (max-width: 560px) {
-  .tt-grid-3 {
-    grid-template-columns: 1fr;
-  }
-
-  .tt-text h1 {
-    font-size: 23px;
-  }
+  .tt-grid-3 { grid-template-columns: 1fr; }
+  .tt-text h1 { font-size: 23px; }
 }
 
 /* =========================================================
-   Help + Thank You page base containers
-   (so they are consistent even if they have inline CSS too)
+   Help + Thank You base containers
    ========================================================= */
-
 .tt-help,
 .tt-thankyou {
   max-width: 1040px;
@@ -452,9 +350,7 @@ a:hover {
   padding: 36px 16px 70px;
 }
 
-.tt-block {
-  margin-bottom: 18px;
-}
+.tt-block { margin-bottom: 18px; }
 
 .tt-intro {
   margin: 10px 0 0;
@@ -472,11 +368,7 @@ details {
   margin-bottom: 10px;
 }
 
-summary {
-  cursor: pointer;
-  font-weight: 900;
-  color: rgba(17, 24, 39, 0.92);
-}
+summary { cursor: pointer; font-weight: 900; color: rgba(17, 24, 39, 0.92); }
 
 details p {
   margin: 10px 0 0;
@@ -488,7 +380,6 @@ details p {
 /* =========================================================
    FOOTER (Tiny logos, professional)
    ========================================================= */
-
 .tt-footer {
   margin-top: 28px;
   padding: 18px 16px;
@@ -513,7 +404,6 @@ details p {
   gap: 6px;
 }
 
-/* 🔹 Tiny square logos */
 .tt-footer-logo {
   width: 16px;
   height: 16px;
@@ -526,16 +416,227 @@ details p {
   text-decoration: none;
   font-weight: 800;
 }
+.tt-footer a:hover { text-decoration: underline; }
 
-.tt-footer a:hover {
-  text-decoration: underline;
+@media (max-width: 640px) {
+  .tt-footer-inner { flex-direction: column; text-align: center; gap: 8px; }
 }
 
-/* Footer mobile */
-@media (max-width: 640px) {
-  .tt-footer-inner {
-    flex-direction: column;
-    text-align: center;
-    gap: 8px;
-  }
+/* =========================================================
+   COMPATIBILITY LAYER (IMPORTANT)
+   This maps your current HTML classes to the premium TT system.
+   ========================================================= */
+
+/* Trust bar (your HTML uses .trust-bar) */
+.trust-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.9);
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.trust-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 240px;
+}
+
+.tiny-logo {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  object-fit: contain;
+}
+
+.trust-right {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.trust-right a {
+  font-size: 12px;
+  font-weight: 850;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 118, 110, 0.22);
+  background: rgba(15, 118, 110, 0.06);
+  color: rgba(15, 118, 110, 0.95);
+  text-decoration: none;
+}
+
+.trust-right a:hover {
+  text-decoration: none;
+  filter: brightness(0.98);
+}
+
+/* Bands + content container */
+.band { padding: 44px 16px; }
+
+.band-hero {
+  background: radial-gradient(
+    circle at top,
+    rgba(209, 250, 229, 0.9),
+    rgba(233, 213, 255, 0.65) 45%,
+    rgba(250, 250, 250, 1) 100%
+  );
+}
+
+.band-white { background: #ffffff; }
+
+.content {
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: 18px;
+  padding: 22px 18px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(229, 231, 235, 0.9);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.07);
+}
+
+/* Two-column layout */
+.two-col {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 26px;
+  align-items: center;
+}
+
+.two-col.reverse {
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+}
+
+.two-col .text h1,
+.two-col .text h2 {
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.two-col .text h1 { font-size: 30px; line-height: 1.12; }
+
+.two-col .text h2 { font-size: 22px; line-height: 1.2; }
+
+.two-col .text p {
+  margin: 10px 0 0;
+  color: rgba(55, 65, 81, 0.88);
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 60ch;
+}
+
+.two-col .image img {
+  width: 100%;
+  max-width: 520px;
+  margin-left: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(229, 231, 235, 0.95);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
+}
+
+/* CTA group */
+.cta-group {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Button compatibility: .btn.primary / .btn.secondary / .btn.ghost */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+  text-decoration: none;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  background: rgba(99, 102, 241, 0.10);
+  color: rgba(67, 56, 202, 1);
+}
+
+.btn:hover { text-decoration: none; filter: brightness(0.98); }
+
+.btn.primary {
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  background: rgba(99, 102, 241, 0.10);
+  color: rgba(67, 56, 202, 1);
+}
+
+.btn.secondary {
+  border: 1px solid rgba(15, 118, 110, 0.25);
+  background: rgba(15, 118, 110, 0.08);
+  color: rgba(15, 118, 110, 0.95);
+}
+
+.btn.ghost {
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  background: rgba(255, 255, 255, 0.65);
+  color: rgba(55, 65, 81, 0.92);
+}
+
+/* Center utility used in pages */
+.center { text-align: center; }
+.center .cta-group { justify-content: center; }
+
+/* Pricing section compatibility */
+.pricing h2 { margin: 0 0 10px; letter-spacing: -0.02em; }
+.price-card {
+  border-radius: 16px;
+  padding: 14px 14px 12px;
+  border: 1px solid rgba(229, 231, 235, 0.9);
+  background: rgba(255, 255, 255, 0.92);
+}
+.price-card h3 { margin: 0 0 8px; }
+.price { margin: 0 0 10px; font-size: 28px; font-weight: 950; letter-spacing: -0.02em; }
+.note { font-size: 12px; color: rgba(55, 65, 81, 0.84); }
+.upsell {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px dashed rgba(99, 102, 241, 0.30);
+  background: rgba(99, 102, 241, 0.06);
+  font-size: 12px;
+  color: rgba(55, 65, 81, 0.84);
+}
+
+/* Steps list */
+.steps { margin: 10px 0 0; padding-left: 18px; }
+.steps li { margin-bottom: 6px; color: rgba(55, 65, 81, 0.86); font-size: 14px; }
+
+/* Footer compatibility (your HTML uses <footer> + .tiny-icon) */
+footer {
+  margin-top: 28px;
+  padding: 18px 16px;
+  font-size: 0.9rem;
+  color: rgba(55, 65, 81, 0.78);
+}
+
+footer p {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.tiny-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  border-radius: 3px;
 }
