@@ -4,7 +4,11 @@
    - Larger fonts (less emptiness)
    - Calm premium heritage tone (warm ivory + emerald + soft lilac)
    - Keep existing class names working (compatibility-first)
+   - Typography Themes: A (Playfair+Inter) and B (Libre Baskerville+Source Sans 3)
    ========================================================= */
+
+/* ===== Fonts (A + B) ===== */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700;800;900&family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;500;600;700;800;900&display=swap");
 
 /* ===== Global Safety Rules ===== */
 *,
@@ -35,6 +39,16 @@ img { max-width: 100%; height: auto; display: block; }
 
   --radius-lg: 20px;
   --radius-md: 16px;
+
+  /* Typography Theme A (default) */
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+
+/* Typography Theme B (toggle by adding class="theme-b" on <html>) */
+html.theme-b{
+  --font-serif: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  --font-sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 }
 
 /* ===== Typography (bigger by default) ===== */
@@ -42,10 +56,15 @@ html { font-size: 18px; } /* key change: bigger base text */
 
 body{
   overflow-x: hidden;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-sans);
   color: var(--ink);
   background: var(--bg-main);
   line-height: 1.7;
+}
+
+/* Headings use heritage serif */
+h1, h2, h3, h4, h5, h6{
+  font-family: var(--font-serif);
 }
 
 /* Links */
@@ -406,4 +425,3 @@ footer p{
   text-decoration:none;
 }
 .btn-secondary:hover{ filter: brightness(0.98); text-decoration:none; }
-
