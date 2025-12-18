@@ -425,3 +425,137 @@ footer p{
   text-decoration:none;
 }
 .btn-secondary:hover{ filter: brightness(0.98); text-decoration:none; }
+
+/* ================================
+   Pricing + Upsells (v2 locked)
+   Paste at bottom of v2/styles.css
+================================= */
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.price-card {
+  grid-column: span 12;
+  border: 1px solid var(--line, rgba(0,0,0,.10));
+  background: var(--surface, rgba(255,255,255,.75));
+  border-radius: 18px;
+  padding: 18px 18px;
+  box-shadow: 0 10px 26px rgba(0,0,0,.06);
+}
+
+@media (min-width: 880px) {
+  .price-card { grid-column: span 6; }
+}
+
+.price-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line, rgba(0,0,0,.10));
+  background: rgba(255,255,255,.6);
+  font-size: .92rem;
+}
+
+.price {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.price small {
+  font-size: .95rem;
+  font-weight: 600;
+  opacity: .75;
+}
+
+.price-sub {
+  margin-top: 6px;
+  opacity: .85;
+}
+
+.list-check {
+  margin: 14px 0 0;
+  padding-left: 18px;
+}
+.list-check li { margin: 8px 0; }
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line, rgba(0,0,0,.12));
+  text-decoration: none;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--ink, #111);
+  color: #fff;
+  border-color: transparent;
+}
+
+.btn-ghost {
+  background: rgba(255,255,255,.65);
+  color: var(--ink, #111);
+}
+
+.note-box {
+  margin-top: 16px;
+  border: 1px dashed var(--line, rgba(0,0,0,.18));
+  background: rgba(255,255,255,.55);
+  border-radius: 14px;
+  padding: 14px 14px;
+}
+
+.upsell-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.upsell {
+  grid-column: span 12;
+  border: 1px solid var(--line, rgba(0,0,0,.10));
+  background: rgba(255,255,255,.6);
+  border-radius: 16px;
+  padding: 14px 14px;
+}
+
+@media (min-width: 880px) {
+  .upsell { grid-column: span 6; }
+}
+
+.upsell h4 { margin: 0 0 6px; }
+.upsell p { margin: 0; opacity: .88; }
+
+.hr-soft {
+  margin: 22px 0;
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0,0,0,.16), transparent);
+}
