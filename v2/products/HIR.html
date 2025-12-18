@@ -2,82 +2,124 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>HIR · Hierarchy Library (v2)</title>
+  <title>HIR · Hierarchy Expansion (v2)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="HIR — a hierarchy-focused legacy library: lineage, leadership chains, succession, and structured records." />
-  <link rel="stylesheet" href="../styles.css" />
+  <meta
+    name="description"
+    content="HIR — a hierarchy expansion for structured lineage, leadership chains, succession, and role-based legacy records."
+  />
+
+  <!-- v2 stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+
   <style>
     .wrap { max-width: 1100px; margin: auto; }
-    .soft-box { background: rgba(255,255,255,0.92); border: 1px solid rgba(229,231,235,0.95); border-radius: 18px; padding: 1.6rem; margin: 1.25rem 0; box-shadow: 0 12px 34px rgba(15,23,42,0.06); }
-    .badge { display:inline-block; padding:.35rem .75rem; border-radius:999px; border:1px solid rgba(99,102,241,.25); background:rgba(99,102,241,.10); color:rgba(67,56,202,1); font-weight:900; font-size:.82rem; margin-bottom:.75rem; }
+    .soft-box {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(229,231,235,0.95);
+      border-radius: 18px;
+      padding: 1.6rem;
+      margin: 1.25rem 0;
+      box-shadow: 0 12px 34px rgba(15,23,42,0.06);
+    }
+    .badge {
+      display:inline-block;
+      padding:.35rem .75rem;
+      border-radius:999px;
+      border:1px solid rgba(99,102,241,.25);
+      background:rgba(99,102,241,.10);
+      color:rgba(67,56,202,1);
+      font-weight:900;
+      font-size:.82rem;
+      margin-bottom:.75rem;
+    }
     .note { color: rgba(55,65,81,0.88); font-size: 1.02rem; line-height: 1.75; }
     .list-tight { margin: 0; padding-left: 1.1rem; }
     .list-tight li { margin-bottom: 0.55rem; color: rgba(55,65,81,0.88); }
-    .price-tag { font-size: 2.35rem; font-weight: 950; margin: .6rem 0 .9rem; letter-spacing: -0.02em; }
+    .price-tag {
+      font-size: 2.2rem;
+      font-weight: 950;
+      margin: .6rem 0 .2rem;
+      letter-spacing: -0.02em;
+    }
+    .subprice { margin: 0 0 .9rem; opacity: .8; }
+    .hr-soft {
+      margin: 22px 0;
+      border: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(0,0,0,.16), transparent);
+    }
   </style>
 </head>
+
 <body>
 
 <header class="trust-bar">
   <div class="trust-left">
-    <img src="../../assets/logo/tinyteam-logo.jpeg" alt="TinyTeam" class="tiny-logo" />
+    <img src="../assets/logo/tinyteam-logo.jpeg" alt="TinyTeam" class="tiny-logo" />
     <span>TinyTeam Digital Library · v2</span>
   </div>
   <div class="trust-right">
-    <a href="../index.html">v2 Home</a>
-    <a href="../../submit/index.html">Guided Submission</a>
-    <a href="../../updates/index.html">Living Updates</a>
+    <a href="./index.html">v2 Home</a>
+    <a href="../submit/index.html">Guided Submission</a>
+    <a href="../updates/index.html">Living Updates</a>
     <a href="mailto:smallsteps@tinyteamstudio.online">Email</a>
-    <a href="../../help/index.html">Help</a>
+    <a href="../help/index.html">Help</a>
   </div>
 </header>
 
 <section class="band band-white">
   <div class="content wrap">
 
-    <span class="badge">HIR</span>
-    <h1>Hierarchy Library</h1>
+    <span class="badge">HIR · Expansion</span>
+    <h1>Hierarchy Expansion</h1>
     <p class="note">
-      A structure-focused legacy library for hierarchies — leadership chains, succession lines, role progression,
-      and historical records. Useful for clans with titles, organizations with terms, and structured communities.
+      The HIR Expansion adds structured hierarchy to an existing Family or Community Library —
+      such as leadership chains, succession lines, titles, roles, and term-based records.
     </p>
 
-    <div class="price-tag">Pricing: By scope</div>
+    <div class="price-tag">Starting at $29 <span style="font-size:1rem; font-weight:800; opacity:.75;">USD</span></div>
+    <p class="subprice note">Add-on only · Quoted by scope · Human-reviewed</p>
 
     <div class="cta-group">
-      <a class="btn primary" href="mailto:smallsteps@tinyteamstudio.online?subject=HIR%20Inquiry%20%E2%80%93%20Hierarchy%20Library&body=Hello%20TinyTeam%2C%0A%0AI%20want%20a%20HIR%20Hierarchy%20Library.%0A%0AGroup%2FOrganization%20Name%3A%20%0AWhat%20hierarchy%20type%3A%20(leadership%20terms%2Fsuccession%2Flineage%2Froles)%0AEstimated%20people%2Froles%3A%20%0ATime%20range%20(yrs)%3A%20%0A%0AThank%20you!">Email for HIR Quote</a>
-      <a class="btn secondary" href="../../help/index.html">Read Help Guide</a>
-      <a class="btn ghost" href="../index.html">Back to v2 Home</a>
+      <a class="btn primary" href="mailto:smallsteps@tinyteamstudio.online?subject=HIR%20Expansion%20Inquiry&body=Hello%20TinyTeam%2C%0A%0AI%20would%20like%20to%20add%20the%20HIR%20Hierarchy%20Expansion%20to%20my%20library.%0A%0AExisting%20Library%20(FAM%20or%20COMM)%3A%20%0AGroup%2FClan%2FOrganization%20Name%3A%20%0AType%20of%20hierarchy%20(leadership%2Fsuccession%2Froles)%3A%20%0AEstimated%20people%20or%20roles%3A%20%0A%0AThank%20you!">Request HIR Quote</a>
+      <a class="btn ghost" href="./index.html">Back to v2 Home</a>
     </div>
 
     <div class="soft-box">
-      <h2>Includes</h2>
+      <h2>What This Expansion Includes</h2>
       <ul class="list-tight">
-        <li>Hierarchy map pages (roles and relationships)</li>
-        <li>Leader lists by year/term (optional)</li>
-        <li>Succession line documentation (optional)</li>
-        <li>Legacy notes, memorial entries (by request)</li>
-        <li>Manual review + respectful handling of sensitive history</li>
+        <li>Hierarchy maps (roles, titles, or positions)</li>
+        <li>Leadership lists by year or term (optional)</li>
+        <li>Succession and lineage documentation (optional)</li>
+        <li>Role-based notes and historical context</li>
+        <li>Manual review with respectful handling of sensitive history</li>
       </ul>
     </div>
+
+    <hr class="hr-soft" />
 
     <div class="soft-box">
       <h2>Living Updates</h2>
       <p class="note">
-        Add new leaders, edit roles, record milestones, and keep the hierarchy updated over time.
+        As leadership changes or roles evolve, you may request updates by email to keep the hierarchy accurate.
       </p>
       <div class="cta-group">
-        <a class="btn ghost" href="../../updates/index.html">Living Updates</a>
+        <a class="btn ghost" href="../updates/index.html">Request Living Updates</a>
       </div>
     </div>
+
+    <p class="note" style="margin-top:1rem;">
+      This expansion is carefully integrated into your existing library — never rushed, never automated.
+    </p>
 
   </div>
 </section>
 
 <footer>
   <p>
-    <img src="../../assets/logo/tinyteam-logo.jpeg" class="tiny-icon" alt="" />
-    TinyTeam Digital Library · v2 · <a href="../index.html">Home</a>
+    <img src="../assets/logo/tinyteam-logo.jpeg" class="tiny-icon" alt="" />
+    TinyTeam Digital Library · v2 · <a href="./index.html">Home</a>
   </p>
 </footer>
 
